@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Sell Your Car | Sahara Cars</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+    href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #f7f8fb;
+        }
+
+        :root {
+            --primary: #ff3b00;
+            --dark: #111;
+            --shadow: 0 15px 40px rgba(0, 0, 0, .08);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        header {
+            background: #111;
+        }
+
+        .navbar-brand {
+            font-size: 34px;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .navbar-brand span {
+            color: var(--primary);
+        }
+
+        .nav-link {
+            color: #fff !important;
+            margin: 0 15px;
+        }
+
+        .btn-call {
+            background: var(--primary);
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 40px;
+        }
+
+        .hero {
+
+            background: linear-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)),
+                url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1900");
+
+            background-size: cover;
+            background-position: center;
+
+            padding: 110px 0;
+
+            color: #fff;
+
+        }
+
+        .hero h1 {
+
+            font-size: 60px;
+            font-weight: 800;
+            margin-bottom: 20px;
+
+        }
+
+        .hero p {
+
+            font-size: 18px;
+            color: #ddd;
+
+        }
+
+        .sell-form {
+
+            background: #fff;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: var(--shadow);
+
+            margin-top: -70px;
+
+            position: relative;
+
+            z-index: 10;
+
+        }
+
+        .sell-form h3 {
+
+            font-weight: 700;
+            margin-bottom: 30px;
+
+        }
+
+        .form-control,
+        .form-select {
+
+            height: 56px;
+            border-radius: 12px;
+
+        }
+
+        textarea.form-control {
+
+            height: auto;
+
+        }
+
+        .btn-sell {
+
+            height: 58px;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+
+        }
+
+        .section {
+
+            padding: 80px 0;
+
+        }
+
+        .step-card {
+
+            background: #fff;
+            padding: 30px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: .3s;
+
+        }
+
+        .step-card:hover {
+
+            transform: translateY(-8px);
+
+        }
+
+        .step-card i {
+
+            font-size: 50px;
+            color: var(--primary);
+            margin-bottom: 20px;
+
+        }
+
+        @media(max-width:991px) {
+
+            .hero {
+
+                padding: 80px 0;
+
+            }
+
+            .hero h1 {
+
+                font-size: 42px;
+
+            }
+
+            .sell-form {
+
+                margin-top: 30px;
+
+            }
+
+        }
+        
+        .hero{
+            animation:heroZoom 12s infinite alternate;
+        }
+            
+        @keyframes heroZoom{
+            from{
+                background-size:100%;
+            }
+            
+            to{
+                background-size:110%;
+            }
+        }
+        
+        @keyframes floating{
+
+            0%{transform:translateY(0);}
+            
+            50%{transform:translateY(-12px);}
+            
+            100%{transform:translateY(0);}
+            
+            }
+            
+            .hero i{
+            
+            animation:floating 4s ease-in-out infinite;
+            
+            }
+            
+            .form-control,
+                .form-select{
+                
+                transition:.3s;
+                
+                }
+                
+                .form-control:focus,
+                .form-select:focus{
+                
+                border-color:#ff5722;
+                
+                box-shadow:0 0 0 .25rem rgba(255,87,34,.18);
+                
+                }
+                
+                .step-card{
+
+transition:.4s;
+
+}
+
+.step-card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 25px 60px rgba(0,0,0,.15);
+
+}
+
+.btn-sell{
+
+transition:.35s;
+
+}
+
+.btn-sell:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0 20px 40px rgba(255,87,34,.35);
+
+}
+
+.upload-box{
+
+border:2px dashed #ff5722;
+
+border-radius:20px;
+
+padding:40px;
+
+text-align:center;
+
+cursor:pointer;
+
+transition:.35s;
+
+}
+
+.upload-box:hover{
+
+background:#fff7f4;
+
+}
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container">
+
+            <nav class="navbar navbar-expand-lg">
+
+                <a class="navbar-brand" href="index.html">
+
+                    SAHARA <span>CARS</span>
+
+                </a>
+
+                <button class="navbar-toggler bg-white" data-bs-toggle="collapse" data-bs-target="#menu">
+
+                    <span class="navbar-toggler-icon"></span>
+
+                </button>
+
+                <div class="collapse navbar-collapse" id="menu">
+
+                    <ul class="navbar-nav mx-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="buy-cars.html">Buy Cars</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" href="sell-car.html">Sell Car</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="finance.html">Finance</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-bs-toggle="modal"
+                                                data-bs-target="#contactModal">Contact</a>
+                        </li>
+
+                    </ul>
+
+                    <a href="#" class="btn-call" data-bs-toggle="modal"
+                                                data-bs-target="#contactModal">
+
+                        Call Expert
+
+                    </a>
+
+                </div>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="container">
+
+            <div class="row align-items-center">
+
+                <div class="col-lg-7" data-aos="fade-right">
+
+                    <h6 class="text-danger fw-bold">
+
+                        SELL YOUR CAR
+
+                    </h6>
+
+                    <h1>
+
+                        Get the Best Price
+                        for Your Car
+
+                    </h1>
+
+                    <p>
+
+                        Sell your used car with Sahara Cars.
+                        Free inspection, instant valuation,
+                        secure payment and hassle-free paperwork.
+
+                    </p>
+
+                    <div class="mt-4">
+
+                        <a href="#sellForm" class="btn btn-danger btn-lg px-5">
+
+                            Get Free Valuation
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-5 text-center" data-aos="fade-left">
+
+                    <i class="fa-solid fa-car-side" style="font-size:180px;color:#ff3b00;"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FORM -->
+
+    <section class="container">
+
+        <div class="sell-form" id="sellForm" data-aos="fade-up">
+
+            <h3>
+
+                Vehicle Information
+
+            </h3>
+
+            <div class="row g-4">
+
+                <div class="col-lg-6">
+
+                    <label class="mb-2">
+
+                        Owner Name
+
+                    </label>
+
+                    <input type="text" class="form-control" placeholder="Enter Name">
+
+                </div>
+
+                <div class="col-lg-6">
+
+                    <label class="mb-2">
+
+                        Mobile Number
+
+                    </label>
+
+                    <input type="text" class="form-control" placeholder="+91">
+
+                </div>
+
+                <div class="col-lg-4">
+
+                    <label class="mb-2">
+
+                        Car Brand
+
+                    </label>
+
+                    <select class="form-select">
+
+                        <option>BMW</option>
+
+                        <option>Audi</option>
+
+                        <option>Mercedes</option>
+
+                        <option>Volvo</option>
+
+                        <option>Jaguar</option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-lg-4">
+
+                    <label class="mb-2">
+
+                        Model
+
+                    </label>
+
+                    <input type="text" class="form-control" placeholder="Car Model">
+
+                </div>
+
+                <div class="col-lg-4">
+
+                    <label class="mb-2">
+
+                        Year
+
+                    </label>
+
+                    <select class="form-select">
+
+                        <option>2025</option>
+                        <option>2024</option>
+                        <option>2023</option>
+                        <option>2022</option>
+                        <option>2021</option>
+                        <option>2020</option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-lg-4">
+
+                    <label class="mb-2">
+
+                        Fuel Type
+
+                    </label>
+
+                    <select class="form-select">
+
+                        <option>Petrol</option>
+
+                        <option>Diesel</option>
+
+                        <option>Electric</option>
+
+                        <option>Hybrid</option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-lg-4">
+
+                    <label class="mb-2">
+
+                        Transmission
+
+                    </label>
+
+                    <select class="form-select">
+
+                        <option>Automatic</option>
+
+                        <option>Manual</option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-lg-4">
+
+                    <label class="mb-2">
+
+                        KM Driven
+
+                    </label>
+
+                    <input type="number" class="form-control" placeholder="45000">
+
+                </div>
+                <!-- Upload Images -->
+
+                <div class="col-lg-12">
+
+                    <label class="mb-2 fw-semibold">
+                        Upload Car Photos
+                    </label>
+
+                    <input type="file" class="form-control" multiple>
+
+                    <small class="text-muted">
+                        Upload up to 10 high-quality images.
+                    </small>
+
+                </div>
+
+                <!-- Registration Number -->
+
+                <div class="col-lg-4">
+
+                    <label class="mb-2">
+                        Registration Number
+                    </label>
+
+                    <input type="text" class="form-control" placeholder="KA01AB1234">
+
+                </div>
+
+                <!-- City -->
+
+                <div class="col-lg-4">
+
+                    <label class="mb-2">
+                        City
+                    </label>
+
+                    <select class="form-select">
+
+                        <option>Bangalore</option>
+                        <option>Hyderabad</option>
+                        <option>Chennai</option>
+                        <option>Mumbai</option>
+                        <option>Delhi</option>
+
+                    </select>
+
+                </div>
+
+                <!-- Ownership -->
+
+                <div class="col-lg-4">
+
+                    <label class="mb-2">
+                        Ownership
+                    </label>
+
+                    <select class="form-select">
+
+                        <option>1st Owner</option>
+                        <option>2nd Owner</option>
+                        <option>3rd Owner</option>
+
+                    </select>
+
+                </div>
+
+                <!-- Insurance -->
+
+                <div class="col-lg-4">
+
+                    <label class="mb-2">
+                        Insurance Status
+                    </label>
+
+                    <select class="form-select">
+
+                        <option>Comprehensive</option>
+                        <option>Third Party</option>
+                        <option>Expired</option>
+
+                    </select>
+
+                </div>
+
+                <!-- Insurance Validity -->
+
+                <div class="col-lg-4">
+
+                    <label class="mb-2">
+                        Insurance Valid Till
+                    </label>
+
+                    <input type="date" class="form-control">
+
+                </div>
+
+                <!-- Service History -->
+
+                <div class="col-lg-4">
+
+                    <label class="mb-2">
+                        Service History
+                    </label>
+
+                    <select class="form-select">
+
+                        <option>Authorized Service Center</option>
+                        <option>Local Garage</option>
+                        <option>Not Available</option>
+
+                    </select>
+
+                </div>
+
+                <!-- Expected Price -->
+
+                <div class="col-lg-6">
+
+                    <label class="mb-2">
+                        Expected Selling Price
+                    </label>
+
+                    <div class="input-group">
+
+                        <span class="input-group-text">
+                            ₹
+                        </span>
+
+                        <input type="number" class="form-control" placeholder="2500000">
+
+                    </div>
+
+                </div>
+
+                <!-- Loan -->
+
+                <div class="col-lg-6">
+
+                    <label class="mb-2">
+                        Outstanding Loan
+                    </label>
+
+                    <select class="form-select">
+
+                        <option>No Loan</option>
+                        <option>Loan Active</option>
+
+                    </select>
+
+                </div>
+
+                <!-- Description -->
+
+                <div class="col-lg-12">
+
+                    <label class="mb-2">
+                        Additional Information
+                    </label>
+
+                    <textarea class="form-control" rows="5"
+                        placeholder="Tell us about your car, accessories, modifications, accident history, etc."></textarea>
+
+                </div>
+
+                <!-- Terms -->
+
+                <div class="col-lg-12">
+
+                    <div class="form-check">
+
+                        <input class="form-check-input" type="checkbox" id="agree">
+
+                        <label class="form-check-label" for="agree">
+
+                            I confirm that the information provided is accurate.
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+                <!-- Submit -->
+
+                <div class="col-lg-12 d-grid">
+
+                    <button class="btn-sell">
+
+                        <i class="fa-solid fa-car me-2"></i>
+
+                        Get Instant Valuation
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ===========================
+WHY SELL WITH SAHARA
+=========================== -->
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="text-center mb-5">
+
+                <h2 class="fw-bold">
+                    Why Sell With Sahara Cars?
+                </h2>
+
+                <p class="text-muted">
+                    Fast, transparent, and hassle-free car selling experience.
+                </p>
+
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="step-card" data-aos="zoom-in" data-aos-delay="100">
+
+                        <i class="fa-solid fa-money-bill-wave"></i>
+
+                        <h5>Best Price</h5>
+
+                        <p>
+                            Get the highest market value for your vehicle.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="step-card" data-aos="zoom-in" data-aos-delay="200">
+
+                        <i class="fa-solid fa-file-contract"></i>
+
+                        <h5>Free Paperwork</h5>
+
+                        <p>
+                            RC transfer and documentation handled by us.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="step-card" data-aos="zoom-in" data-aos-delay="300">
+
+                        <i class="fa-solid fa-credit-card"></i>
+
+                        <h5>Instant Payment</h5>
+
+                        <p>
+                            Receive payment directly to your bank account.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="step-card" data-aos="zoom-in" data-aos-delay="400">
+
+                        <i class="fa-solid fa-shield-halved"></i>
+
+                        <h5>Secure Process</h5>
+
+                        <p>
+                            Verified buyers and secure transactions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- ==========================
+SELLING PROCESS
+========================== -->
+
+    <section class="section bg-light">
+
+        <div class="container">
+
+            <div class="text-center mb-5">
+
+                <h2 class="fw-bold">
+                    Sell Your Car in 4 Easy Steps
+                </h2>
+
+                <p class="text-muted">
+                    Simple, transparent and hassle-free process.
+                </p>
+
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+
+                    <div class="step-card">
+
+                        <div class="display-4 fw-bold text-danger mb-3">
+                            1
+                        </div>
+
+                        <h5>Submit Details</h5>
+
+                        <p>
+                            Fill in your vehicle information and upload photos.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="step-card" data-aos="zoom-in" data-aos-delay="200">
+
+                        <div class="display-4 fw-bold text-danger mb-3">
+                            2
+                        </div>
+
+                        <h5>Free Inspection</h5>
+
+                        <p>
+                            Our experts inspect your car at your convenience.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="step-card" data-aos="zoom-in" data-aos-delay="300">
+
+                        <div class="display-4 fw-bold text-danger mb-3">
+                            3
+                        </div>
+
+                        <h5>Best Offer</h5>
+
+                        <p>
+                            Receive the best market price with instant approval.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="step-card" data-aos="zoom-in" data-aos-delay="400">
+
+                        <div class="display-4 fw-bold text-danger mb-3">
+                            4
+                        </div>
+
+                        <h5>Instant Payment</h5>
+
+                        <p>
+                            Complete paperwork and receive payment immediately.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================
+CALL TO ACTION
+========================== -->
+
+    <section class="py-5" style="background:#111;">
+
+        <div class="container">
+
+            <div class="row align-items-center">
+
+                <div class="col-lg-8 text-white" data-aos="fade-left">
+
+                    <h2 class="fw-bold">
+
+                        Get Your Free Car Valuation Today
+
+                    </h2>
+
+                    <p class="mb-0">
+
+                        No hidden charges. Free inspection. Instant payment.
+
+                    </p>
+
+                </div>
+
+                <div class="col-lg-4 text-lg-end mt-4 mt-lg-0" data-aos="fade-right">
+
+                    <a href="#sellForm" class="btn btn-danger btn-lg px-5">
+
+                        Start Selling
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================
+FAQ
+========================== -->
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="text-center mb-5" data-aos="fade-down">
+
+                <h2 class="fw-bold">
+
+                    Frequently Asked Questions
+
+                </h2>
+
+            </div>
+
+            <div class="accordion" id="faq" data-aos="fade-up">
+
+                <div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
+
+                    <h2 class="accordion-header">
+
+                        <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#faq1">
+
+                            How long does it take to sell my car?
+
+                        </button>
+
+                    </h2>
+
+                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faq">
+
+                        <div class="accordion-body">
+
+                            Most cars are evaluated within 24 hours and purchased within 1–2 business days.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="accordion-item" data-aos="fade-up" data-aos-delay="300">
+
+                    <h2 class="accordion-header">
+
+                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq2">
+
+                            Is inspection free?
+
+                        </button>
+
+                    </h2>
+
+                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faq">
+
+                        <div class="accordion-body">
+
+                            Yes. Vehicle inspection and valuation are completely free.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="accordion-item" data-aos="fade-up" data-aos-delay="500">
+
+                    <h2 class="accordion-header">
+
+                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq3">
+
+                            When will I receive payment?
+
+                        </button>
+
+                    </h2>
+
+                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faq">
+
+                        <div class="accordion-body">
+
+                            Payment is transferred immediately after document verification.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+  <div class="modal fade" id="contactModal" tabindex="-1">
+
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+
+            <div class="modal-content border-0 rounded-4 overflow-hidden">
+
+                <div class="row g-0">
+
+                    <!-- Left -->
+
+                    <div class="col-lg-5 text-white p-5" style="background:linear-gradient(135deg,#111,#ff4d00);">
+
+                        <h2 class="fw-bold mb-3">
+                            Sahara Cars
+                        </h2>
+
+                        <p class="mb-4">
+
+                            Looking for your dream car?
+
+                            Our experts will contact you within
+                            30 minutes.
+
+                        </p>
+
+                        <div class="mb-4">
+
+                            <h6>
+
+                                <i class="fa-solid fa-phone me-2"></i>
+
+                                +91 98765 43210
+
+                            </h6>
+
+                            <h6>
+
+                                <i class="fab fa-whatsapp me-2"></i>
+
+                                WhatsApp Support
+
+                            </h6>
+
+                            <h6>
+
+                                <i class="fa-solid fa-envelope me-2"></i>
+
+                                info@saharacars.com
+
+                            </h6>
+
+                            <h6>
+
+                                <i class="fa-solid fa-location-dot me-2"></i>
+
+                                Bangalore, Karnataka
+
+                            </h6>
+
+                        </div>
+
+                        <div class="d-flex gap-3">
+
+                            <a href="#" class="btn btn-light rounded-pill">
+
+                                <i class="fab fa-whatsapp"></i>
+
+                            </a>
+
+                            <a href="#" class="btn btn-light rounded-pill">
+
+                                <i class="fa-solid fa-phone"></i>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Right -->
+
+                    <div class="col-lg-7">
+
+                        <div class="p-5">
+
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+
+                                <h3 class="fw-bold">
+
+                                    Contact Us
+
+                                </h3>
+
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+
+                            </div>
+
+                            <form>
+
+                                <div class="mb-3">
+
+                                    <label class="form-label">
+
+                                        Full Name
+
+                                    </label>
+
+                                    <input type="text" class="form-control form-control-lg"
+                                        placeholder="Enter your name">
+
+                                </div>
+
+                                <div class="mb-3">
+
+                                    <label class="form-label">
+
+                                        Mobile Number
+
+                                    </label>
+
+                                    <input type="tel" class="form-control form-control-lg" placeholder="+91">
+
+                                </div>
+
+                                <div class="mb-3">
+
+                                    <label class="form-label">
+
+                                        Email Address
+
+                                    </label>
+
+                                    <input type="email" class="form-control form-control-lg"
+                                        placeholder="example@gmail.com">
+
+                                </div>
+
+                                <div class="mb-3">
+
+                                    <label class="form-label">
+
+                                        Interested Car
+
+                                    </label>
+
+                                    <select class="form-select form-select-lg">
+
+                                        <option>Select Car</option>
+
+                                        <option>BMW X5</option>
+
+                                        <option>BMW 5 Series</option>
+
+                                        <option>Audi A6</option>
+
+                                        <option>Audi Q7</option>
+
+                                        <option>Mercedes GLC</option>
+
+                                        <option>Mercedes C-Class</option>
+
+                                        <option>Jaguar XF</option>
+
+                                    </select>
+
+                                </div>
+
+                                <div class="mb-4">
+
+                                    <label class="form-label">
+
+                                        Message
+
+                                    </label>
+
+                                    <textarea rows="4" class="form-control"
+                                        placeholder="Tell us your requirement"></textarea>
+
+                                </div>
+
+                                <div class="d-grid">
+
+                                    <button class="btn btn-danger btn-lg rounded-pill">
+
+                                        Submit Enquiry
+
+                                    </button>
+
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+    <!-- ==========================
+FOOTER
+========================== -->
+
+    <footer style="background:#000;color:#fff;">
+
+        <div class="container py-5">
+
+            <div class="row">
+
+                <div class="col-lg-4">
+
+                    <h3 class="fw-bold">
+
+                        SAHARA
+                        <span class="text-danger">CARS</span>
+
+                    </h3>
+
+                    <p class="mt-3">
+
+                        Premium destination for buying and selling luxury pre-owned vehicles across India.
+
+                    </p>
+
+                    <div class="d-flex gap-3 mt-4">
+
+                        <i class="fab fa-facebook fa-lg"></i>
+
+                        <i class="fab fa-instagram fa-lg"></i>
+
+                        <i class="fab fa-x-twitter fa-lg"></i>
+
+                        <i class="fab fa-youtube fa-lg"></i>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-2">
+
+                    <h5>Quick Links</h5>
+
+                    <ul class="list-unstyled">
+
+                        <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+
+                        <li><a href="buy-cars.html" class="text-white text-decoration-none">Buy Cars</a></li>
+
+                        <li><a href="sell-car.html" class="text-white text-decoration-none">Sell Car</a></li>
+
+                        <li><a href="finance.html" class="text-white text-decoration-none">Finance</a></li>
+
+                    </ul>
+
+                </div>
+
+                <div class="col-lg-3">
+
+                    <h5>Contact</h5>
+
+                    <p><i class="fa-solid fa-location-dot me-2"></i>Bangalore, India</p>
+
+                    <p><i class="fa-solid fa-phone me-2"></i>+91 98765 43210</p>
+
+                    <p><i class="fa-solid fa-envelope me-2"></i>info@saharacars.com</p>
+
+                </div>
+
+                <div class="col-lg-3">
+
+                    <h5>Business Hours</h5>
+
+                    <p>Monday - Saturday</p>
+
+                    <p>09:00 AM - 08:00 PM</p>
+
+                    <p>Sunday: By Appointment</p>
+
+                </div>
+
+            </div>
+
+            <hr>
+
+            <div class="text-center">
+                
+                © 2026 Sahara Cars. All Rights Reserved. Designed by <a href="https://www.thiven.com"
+                    target="_blank">THIVEN</a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- Floating WhatsApp -->
+
+    <a href="#" class="btn btn-success rounded-circle position-fixed" style="
+right:20px;
+bottom:20px;
+width:60px;
+height:60px;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
+">
+
+        <i class="fab fa-whatsapp fa-xl"></i>
+
+    </a>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+
+        // Simple form validation
+
+        document.querySelector(".btn-sell").addEventListener("click", function (e) {
+
+            e.preventDefault();
+
+            const name = document.querySelector("input[type='text']").value;
+
+            const phone = document.querySelectorAll("input[type='text']")[1].value;
+
+            if (name === "" || phone === "") {
+
+                alert("Please fill Owner Name and Mobile Number.");
+
+                return;
+
+            }
+
+            alert("Thank you! Your request has been submitted successfully.");
+
+        });
+
+
+
+        // Smooth scroll
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+            anchor.addEventListener("click", function (e) {
+
+                const target = document.querySelector(this.getAttribute("href"));
+
+                if (target) {
+
+                    e.preventDefault();
+
+                    target.scrollIntoView({
+
+                        behavior: "smooth"
+
+                    });
+
+                }
+
+            });
+
+        });
+
+    </script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    
+    <script>
+    AOS.init({
+        duration:800,
+        once:true,
+        offset:80
+    });
+    </script>
+</body>
+
+</html>

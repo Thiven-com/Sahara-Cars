@@ -1,0 +1,2264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sahara Cars</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        :root {
+
+            --primary: #ff3b00;
+            --dark: #0b0b0b;
+            --light: #ffffff;
+            --gray: #7c7c7c;
+            --shadow: 0 20px 50px rgba(0, 0, 0, .12);
+
+        }
+
+        /*======================
+HEADER
+=======================*/
+
+        header {
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+
+        }
+
+        .navbar {
+
+            padding: 18px 0;
+            transition: .4s;
+
+        }
+
+        .navbar-brand {
+
+            font-size: 34px;
+            font-weight: 800;
+            color: #fff;
+
+        }
+
+        .navbar-brand span {
+
+            color: var(--primary);
+
+        }
+
+        .navbar-nav .nav-link {
+
+            color: #fff;
+            font-weight: 500;
+            margin: 0 15px;
+            transition: .3s;
+
+        }
+
+        .navbar-nav .nav-link:hover {
+
+            color: var(--primary);
+
+        }
+
+        .contact-icons {
+
+            display: flex;
+            align-items: center;
+            gap: 18px;
+
+        }
+
+        .contact-icons i {
+
+            height: 46px;
+            width: 46px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            color: var(--primary);
+
+        }
+
+        .btn-special {
+
+            background: var(--primary);
+            color: #fff;
+            padding: 14px 34px;
+            border-radius: 40px;
+            font-weight: 600;
+            transition: .4s;
+
+        }
+
+        .btn-special:hover {
+
+            background: #fff;
+            color: #111;
+
+        }
+
+        /*=====================
+HERO
+======================*/
+
+        .hero {
+
+            height: 100vh;
+            background: url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1920") center center;
+            background-size: cover;
+            position: relative;
+            display: flex;
+            align-items: center;
+
+        }
+
+        .hero::before {
+
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, .72);
+
+        }
+
+        .hero .container {
+
+            position: relative;
+            z-index: 2;
+
+        }
+
+        .hero h5 {
+
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 20px;
+
+        }
+
+        .hero h1 {
+
+            font-size: 70px;
+            font-weight: 800;
+            line-height: 80px;
+            color: #fff;
+            margin-bottom: 20px;
+
+        }
+
+        .hero p {
+
+            font-size: 18px;
+            color: #ddd;
+            width: 650px;
+            max-width: 100%;
+            margin-bottom: 35px;
+
+        }
+
+        .hero-btn {
+
+            display: flex;
+            gap: 20px;
+
+        }
+
+        .hero-btn a {
+
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+
+        }
+
+        .btn-red {
+
+            background: var(--primary);
+            color: #fff;
+
+        }
+
+        .btn-white {
+
+            background: #fff;
+            color: #111;
+
+        }
+
+        .hero-features {
+
+            display: flex;
+            margin-top: 70px;
+            gap: 45px;
+            flex-wrap: wrap;
+
+        }
+
+        .feature-box {
+
+            display: flex;
+            align-items: center;
+            color: #fff;
+
+        }
+
+        .feature-box i {
+
+            font-size: 32px;
+            color: var(--primary);
+            margin-right: 15px;
+
+        }
+
+        /*======================
+SEARCH BOX
+=======================*/
+
+        .search-box {
+
+            background: #fff;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            margin-top: -90px;
+            position: relative;
+            z-index: 5;
+
+        }
+
+        .search-box select,
+        .search-box input {
+
+            height: 58px;
+
+        }
+
+        .search-btn {
+
+            height: 58px;
+            width: 100%;
+            background: var(--primary);
+            border: none;
+            color: #fff;
+            border-radius: 12px;
+            font-weight: 600;
+
+        }
+
+        /*=====================
+SECTION
+======================*/
+
+        .section {
+
+            padding: 90px 0;
+
+        }
+
+        .section-title {
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 45px;
+
+        }
+
+        .section-title h2 {
+
+            font-weight: 700;
+            font-size: 42px;
+
+        }
+
+        .view-btn {
+
+            padding: 14px 35px;
+            background: #111;
+            color: #fff;
+            border-radius: 40px;
+
+        }
+
+        /*======================
+CAR CARD
+=======================*/
+
+        .car-card {
+
+            background: #fff;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: .35s;
+
+        }
+
+        .car-card:hover {
+
+            transform: translateY(-12px);
+
+        }
+
+        .car-image {
+
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+
+        }
+
+        .car-image img {
+
+            height: 100%;
+            object-fit: cover;
+            transition: .5s;
+
+        }
+
+        .car-card:hover img {
+
+            transform: scale(1.08);
+
+        }
+
+        .badge-year {
+
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            background: var(--primary);
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 30px;
+
+        }
+
+        .badge-new {
+
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            background: #111;
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 30px;
+
+        }
+
+        .card-body {
+
+            padding: 28px;
+
+        }
+
+        .car-name {
+
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+
+        }
+
+        .specs {
+
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+
+        }
+
+        .price {
+
+            font-size: 34px;
+            font-weight: 700;
+            color: #111;
+
+        }
+
+        .card-bottom {
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 25px;
+
+        }
+
+        .call-icons {
+
+            display: flex;
+            gap: 12px;
+
+        }
+
+        .call-icons i {
+
+            height: 45px;
+            width: 45px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f5f5f5;
+            color: var(--primary);
+
+        }
+
+        .view-car {
+
+            padding: 12px 25px;
+            background: #FF5722;
+            color: #fff;
+            border-radius: 40px;
+
+        }
+
+        /*======================
+FEATURES
+=======================*/
+
+        .features {
+
+            background: #111;
+            padding: 80px 0;
+
+        }
+
+        .feature-item {
+
+            text-align: center;
+            color: #fff;
+
+        }
+
+        .feature-item i {
+
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--primary);
+
+        }
+
+        /*======================
+FOOTER
+=======================*/
+
+        footer {
+
+            background: #000;
+            padding: 70px 0;
+            color: #ccc;
+
+        }
+
+        footer h4 {
+
+            color: #fff;
+            margin-bottom: 25px;
+
+        }
+
+        footer ul {
+
+            list-style: none;
+            padding: 0;
+
+        }
+
+        footer ul li {
+
+            margin-bottom: 12px;
+
+        }
+
+        footer ul li a {
+
+            color: #aaa;
+
+        }
+
+        footer ul li a:hover {
+
+            color: #fff;
+
+        }
+
+        .copy {
+
+            border-top: 1px solid rgba(255, 255, 255, .08);
+            margin-top: 40px;
+            padding-top: 25px;
+            text-align: center;
+
+        }
+
+        /*======================
+RESPONSIVE
+=======================*/
+
+        @media(max-width:991px) {
+
+            .hero {
+
+                height: auto;
+                padding: 160px 0 120px;
+
+            }
+
+            .hero h1 {
+
+                font-size: 48px;
+                line-height: 58px;
+
+            }
+
+            .hero-features {
+
+                gap: 25px;
+
+            }
+
+            .section-title {
+
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+
+            }
+
+        }
+
+        @keyframes floating {
+
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+
+        }
+
+        .hero-car {
+
+            animation: floating 4s ease-in-out infinite;
+
+        }
+
+        .btn-special,
+        .btn-red,
+        .view-car {
+
+            transition: .35s;
+
+        }
+
+        .btn-special:hover,
+        .btn-red:hover,
+        .view-car:hover {
+
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(255, 87, 34, .35);
+
+        }
+
+        .car-card:hover {
+
+            transform: translateY(-12px);
+
+        }
+
+        .hero {
+
+            animation: heroZoom 12s infinite alternate;
+
+        }
+
+        @keyframes heroZoom {
+
+            from {
+
+                background-size: 100%;
+
+            }
+
+            to {
+
+                background-size: 110%;
+
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container">
+
+            <nav class="navbar navbar-expand-lg">
+
+                <a class="navbar-brand" href="#">
+                    SAHARA <span>CARS</span>
+                </a>
+
+                <button class="navbar-toggler bg-white" data-bs-toggle="collapse" data-bs-target="#menu">
+
+                    <span class="navbar-toggler-icon"></span>
+
+                </button>
+
+                <div class="collapse navbar-collapse" id="menu">
+
+                    <ul class="navbar-nav mx-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="buy-cars.html">Buy Cars</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="sell-car.html">Sell Car</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="finance.html">Finance</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="gallery.html">Gallery</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-bs-toggle="modal"
+                                data-bs-target="#contactModal">Contact</a>
+                        </li>
+
+                    </ul>
+
+                    <div class="contact-icons">
+
+                        <a target="_blank" href="https://wa.me/919876543210">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+
+                        <a target="_blank" href="tel:919876543210">
+                            <i class="fa-solid fa-phone"></i>
+                        </a>
+
+                        <a href="#" class="btn-special" data-bs-toggle="modal" data-bs-target="#contactModal">
+                            Speak To Specialist
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <section class="hero">
+
+        <div class="container">
+
+            <div class="row align-items-center">
+
+                <div class="col-lg-7" data-aos="fade-right">
+
+                    <h5>WELCOME TO SAHARA CARS</h5>
+
+                    <h1>
+                        Find Your Perfect
+                        Luxury Car
+                    </h1>
+
+                    <p>
+
+                        Discover premium pre-owned luxury cars with
+                        certified inspection, warranty support and
+                        best market prices.
+
+                    </p>
+
+                    <div class="hero-btn">
+
+                        <a href="buy-cars.html" class="btn-red">
+                            Browse Cars
+                        </a>
+
+                        <a href="sell-car.html" class="btn-white">
+                            Sell Your Car
+                        </a>
+
+                    </div>
+
+                    <div class="hero-features">
+
+                        <div class="feature-box">
+
+                            <i class="fa-solid fa-shield"></i>
+
+                            <div>
+
+                                <h6>100+ Point Inspection</h6>
+
+                                <small>Certified Quality</small>
+
+                            </div>
+
+                        </div>
+
+                        <div class="feature-box">
+
+                            <i class="fa-solid fa-indian-rupee-sign"></i>
+
+                            <div>
+
+                                <h6>Best Market Price</h6>
+
+                                <small>Guaranteed</small>
+
+                            </div>
+
+                        </div>
+
+                        <div class="feature-box">
+
+                            <i class="fa-solid fa-handshake"></i>
+
+                            <div>
+
+                                <h6>Easy Finance</h6>
+
+                                <small>Quick Approval</small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-5" data-aos="fade-left" data-aos-delay="300">
+
+                    <!-- Car image comes here in Part 2 -->
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!--=========================
+SEARCH SECTION
+==========================-->
+
+    <section class="container">
+
+        <div class="search-box" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="row g-3">
+
+                <div class="col-lg-3">
+                    <label class="mb-2 fw-semibold">Search Car</label>
+                    <input type="text" class="form-control" placeholder="BMW, Audi, Mercedes">
+                </div>
+
+                <div class="col-lg-2">
+                    <label class="mb-2 fw-semibold">Brand</label>
+
+                    <select class="form-select">
+                        <option>All Brands</option>
+                        <option>BMW</option>
+                        <option>Audi</option>
+                        <option>Mercedes</option>
+                        <option>Jaguar</option>
+                        <option>Volvo</option>
+                    </select>
+
+                </div>
+
+                <div class="col-lg-2">
+
+                    <label class="mb-2 fw-semibold">Budget</label>
+
+                    <select class="form-select">
+
+                        <option>₹10 Lakh</option>
+                        <option>₹20 Lakh</option>
+                        <option>₹40 Lakh</option>
+                        <option>₹60 Lakh</option>
+                        <option>₹1 Crore</option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-lg-2">
+
+                    <label class="mb-2 fw-semibold">Fuel</label>
+
+                    <select class="form-select">
+
+                        <option>All</option>
+                        <option>Petrol</option>
+                        <option>Diesel</option>
+                        <option>Electric</option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-lg-2">
+
+                    <label class="mb-2 fw-semibold">Year</label>
+
+                    <select class="form-select">
+
+                        <option>2025</option>
+                        <option>2024</option>
+                        <option>2023</option>
+                        <option>2022</option>
+                        <option>2021</option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-lg-1 d-grid">
+
+                    <label>&nbsp;</label>
+
+                    <button class="search-btn">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!--=========================
+LATEST CARS
+==========================-->
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <div data-aos="fade-up">
+
+                    <h2>Latest Car Collection</h2>
+
+                    <p class="text-muted">
+                        Explore our newest premium pre-owned arrivals.
+                    </p>
+
+                </div>
+
+                <a href="#" class="view-btn">
+                    View All Cars
+                </a>
+
+            </div>
+
+            <div class="row g-4">
+
+                <!-- CARD -->
+
+                <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+
+                    <div class="car-card">
+
+                        <div class="car-image">
+
+                            <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=900" alt="BMW">
+
+                            <span class="badge-year">2023</span>
+
+                            <span class="badge-new">New Arrival</span>
+
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="car-name">
+                                BMW 5 Series
+                            </div>
+
+                            <div class="specs">
+
+                                <span>
+                                    <i class="fa-solid fa-gas-pump"></i>
+                                    Petrol
+                                </span>
+
+                                <span>
+                                    <i class="fa-solid fa-road"></i>
+                                    26,000 km
+                                </span>
+
+                                <span>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    KA
+                                </span>
+
+                            </div>
+
+                            <div class="price">
+
+                                ₹52,75,000
+
+                            </div>
+
+                            <div class="card-bottom">
+
+                                <div class="call-icons">
+                                    <a target="_blank" href="https://wa.me/919876543210">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </a>
+                                    <a target="_blank" href="tel:919876543210">
+                                        <i class="fa-solid fa-phone"></i>
+                                    </a>
+
+                                </div>
+
+                                <a href="#" class="view-car" data-bs-toggle="modal" data-bs-target="#contactModal">
+
+                                    View Details
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- CARD -->
+
+                <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+
+                    <div class="car-card">
+
+                        <div class="car-image">
+
+                            <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=900">
+
+                            <span class="badge-year">2022</span>
+
+                            <span class="badge-new">Premium</span>
+
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="car-name">
+
+                                Mercedes GLC
+
+                            </div>
+
+                            <div class="specs">
+
+                                <span>Diesel</span>
+
+                                <span>34,000 km</span>
+
+                                <span>KA</span>
+
+                            </div>
+
+                            <div class="price">
+
+                                ₹63,50,000
+
+                            </div>
+
+                            <div class="card-bottom">
+
+                                <div class="call-icons">
+
+                                    <a target="_blank" href="https://wa.me/919876543210">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </a>
+
+                                    <a target="_blank" href="tel:919876543210">
+                                        <i class="fa-solid fa-phone"></i>
+                                    </a>
+
+                                </div>
+
+                                <a href="#" class="view-car" data-bs-toggle="modal" data-bs-target="#contactModal">
+
+                                    View Details
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- CARD -->
+
+                <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+
+                    <div class="car-card">
+
+                        <div class="car-image">
+
+                            <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=900">
+
+                            <span class="badge-year">2024</span>
+
+                            <span class="badge-new">Luxury</span>
+
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="car-name">
+
+                                Audi A6
+
+                            </div>
+
+                            <div class="specs">
+
+                                <span>Petrol</span>
+
+                                <span>14,000 km</span>
+
+                                <span>KA</span>
+
+                            </div>
+
+                            <div class="price">
+
+                                ₹71,00,000
+
+                            </div>
+
+                            <div class="card-bottom">
+
+                                <div class="call-icons">
+
+                                    <a target="_blank" href="https://wa.me/919876543210">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </a>
+
+                                    <a target="_blank" href="tel:919876543210">
+                                        <i class="fa-solid fa-phone"></i>
+                                    </a>
+
+                                </div>
+
+                                <a href="#" class="view-car" data-bs-toggle="modal" data-bs-target="#contactModal">
+
+                                    View Details
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- CARD -->
+
+                <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+
+                    <div class="car-card">
+
+                        <div class="car-image">
+
+                            <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=900">
+
+                            <span class="badge-year">2021</span>
+
+                            <span class="badge-new">Top Pick</span>
+
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="car-name">
+
+                                BMW X7
+
+                            </div>
+
+                            <div class="specs">
+
+                                <span>Diesel</span>
+
+                                <span>41,000 km</span>
+
+                                <span>KA</span>
+
+                            </div>
+
+                            <div class="price">
+
+                                ₹87,00,000
+
+                            </div>
+
+                            <div class="card-bottom">
+
+                                <div class="call-icons">
+
+                                    <a target="_blank" href="https://wa.me/919876543210">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </a>
+
+                                    <a target="_blank" href="tel:919876543210">
+                                        <i class="fa-solid fa-phone"></i>
+                                    </a>
+
+                                </div>
+
+                                <a href="#" class="view-car" data-bs-toggle="modal" data-bs-target="#contactModal">
+
+                                    View Details
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- =========================
+WHY CHOOSE SAHARA CARS
+========================= -->
+
+    <section class="features">
+
+        <div class="container">
+
+            <div class="text-center mb-5">
+
+                <h2 class="text-white fw-bold">
+                    Why Choose Sahara Cars
+                </h2>
+
+                <p class="text-light">
+                    Trusted by thousands of customers for premium pre-owned luxury cars.
+                </p>
+
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="feature-item" data-aos="flip-left">
+
+                        <i class="fa-solid fa-car-side"></i>
+
+                        <h4>500+ Cars</h4>
+
+                        <p>
+                            Premium inspected luxury vehicles.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="feature-item" data-aos="flip-left">
+
+                        <i class="fa-solid fa-shield-heart"></i>
+
+                        <h4>Warranty</h4>
+
+                        <p>
+                            Up to 2 Years Extended Warranty.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="feature-item" data-aos="flip-left">
+
+                        <i class="fa-solid fa-wallet"></i>
+
+                        <h4>Easy Finance</h4>
+
+                        <p>
+                            Lowest Interest Rates Available.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="feature-item" data-aos="flip-left">
+
+                        <i class="fa-solid fa-headset"></i>
+
+                        <h4>24×7 Support</h4>
+
+                        <p>
+                            Dedicated customer assistance.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- =========================
+COUNTER
+========================= -->
+
+    <section class="section bg-white">
+
+        <div class="container">
+
+            <div class="row text-center">
+
+                <div class="col-lg-3 col-6">
+
+                    <h2 class="fw-bold text-danger counter" data-count="15"> 0 </h2>
+
+                    <p>Years Experience</p>
+
+                </div>
+
+                <div class="col-lg-3 col-6">
+
+                    <!-- <h2 class="fw-bold text-danger">12K+</h2> -->
+                    <h2 class="fw-bold text-danger counter" data-count="12000"> 0 </h2>
+
+                    <p>Cars Sold</p>
+
+                </div>
+
+                <div class="col-lg-3 col-6">
+
+                    <h2 class="fw-bold text-danger">4.9★</h2>
+
+                    <p>Google Rating</p>
+
+                </div>
+
+                <div class="col-lg-3 col-6">
+                    <h2 class="fw-bold text-danger">98%</h2>
+
+                    <p>Happy Customers</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- =========================
+FINANCE SECTION
+========================= -->
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="row align-items-center">
+
+                <div class="col-lg-6" data-aos="fade-right">
+
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900"
+                        class="rounded-4 shadow">
+
+                </div>
+
+                <div class="col-lg-6" data-aos="fade-left">
+
+                    <h6 class="text-danger fw-bold">
+
+                        CAR LOAN
+
+                    </h6>
+
+                    <h2 class="fw-bold mb-4">
+
+                        Finance Your Dream Car
+                        with Lowest EMI
+
+                    </h2>
+
+                    <p class="text-muted mb-4">
+
+                        Get instant approval from leading banks.
+                        Enjoy attractive interest rates, flexible repayment
+                        options and minimum documentation.
+
+                    </p>
+
+                    <div class="row">
+
+                        <div class="col-6 mb-3">
+
+                            ✔ Zero Hidden Charges
+
+                        </div>
+
+                        <div class="col-6 mb-3">
+
+                            ✔ Instant Approval
+
+                        </div>
+
+                        <div class="col-6 mb-3">
+
+                            ✔ Lowest Interest
+
+                        </div>
+
+                        <div class="col-6 mb-3">
+
+                            ✔ Doorstep Service
+
+                        </div>
+
+                    </div>
+
+                    <a href="#" class="btn-special mt-3" data-bs-toggle="modal" data-bs-target="#contactModal">
+
+                        Apply Loan
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- =========================
+TESTIMONIALS
+========================= -->
+
+    <section class="section bg-light">
+
+        <div class="container" data-aos="zoom-in-up">
+
+            <div class="section-title">
+
+                <div>
+
+                    <h2>
+
+                        Customer Reviews
+
+                    </h2>
+
+                    <p>
+
+                        What our happy customers say.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-lg-4">
+
+                    <div class="car-card p-4">
+
+                        <div class="mb-3">
+
+                            ★★★★★
+
+                        </div>
+
+                        <p>
+
+                            Purchased my BMW from Sahara Cars.
+                            Excellent condition and transparent pricing.
+
+                        </p>
+
+                        <hr>
+
+                        <h5>
+
+                            Rahul Sharma
+
+                        </h5>
+
+                        <small>
+
+                            Bangalore
+
+                        </small>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4">
+
+                    <div class="car-card p-4">
+
+                        <div class="mb-3">
+
+                            ★★★★★
+
+                        </div>
+
+                        <p>
+
+                            Very professional staff and smooth finance process.
+                            Highly recommended.
+
+                        </p>
+
+                        <hr>
+
+                        <h5>
+
+                            Anjali Rao
+
+                        </h5>
+
+                        <small>
+
+                            Hyderabad
+
+                        </small>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4">
+
+                    <div class="car-card p-4">
+
+                        <div class="mb-3">
+
+                            ★★★★★
+
+                        </div>
+
+                        <p>
+
+                            Luxury car buying experience like never before.
+                            Amazing collection.
+
+                        </p>
+
+                        <hr>
+
+                        <h5>
+
+                            Mohammed Imran
+
+                        </h5>
+
+                        <small>
+
+                            Chennai
+
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- =========================
+BRANDS
+========================= -->
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="row text-center g-4">
+
+                <div class="col" data-aos="fade-up" data-aos-delay="100">
+
+                    <h4>BMW</h4>
+
+                </div>
+
+                <div class="col" data-aos="fade-up" data-aos-delay="200">
+
+                    <h4>AUDI</h4>
+
+                </div>
+
+                <div class="col" data-aos="fade-up" data-aos-delay="300">
+
+                    <h4>MERCEDES</h4>
+
+                </div>
+
+                <div class="col" data-aos="fade-up" data-aos-delay="400">
+
+                    <h4>VOLVO</h4>
+
+                </div>
+
+                <div class="col" data-aos="fade-up" data-aos-delay="500">
+
+                    <h4>JAGUAR</h4>
+
+                </div>
+
+                <div class="col" data-aos="fade-up" data-aos-delay="600">
+
+                    <h4>LEXUS</h4>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- =========================
+NEWSLETTER
+========================= -->
+
+    <section class="section" style="background:#ff3b00;color:#fff;" data-aos="fade-up">
+
+        <div class="container">
+
+            <div class="row align-items-center">
+
+                <div class="col-lg-6">
+
+                    <h2 class="fw-bold mb-2">
+                        Stay Updated
+                    </h2>
+
+                    <p>
+                        Get notified about newly listed luxury cars and exclusive offers.
+                    </p>
+
+                </div>
+
+                <div class="col-lg-6">
+
+                    <form class="row g-2">
+
+                        <div class="col-md-8">
+
+                            <input type="email" class="form-control form-control-lg" placeholder="Enter your email">
+
+                        </div>
+
+                        <div class="col-md-4">
+
+                            <button class="btn btn-dark w-100 btn-lg">
+
+                                Subscribe
+
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- =========================
+FOOTER
+========================= -->
+
+    <footer data-aos="fade-up">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-lg-4">
+
+                    <h4>SAHARA CARS</h4>
+
+                    <p>
+
+                        India's trusted destination for premium pre-owned
+                        luxury cars. Buy, Sell and Finance your dream vehicle
+                        with complete confidence.
+
+                    </p>
+
+                    <div class="d-flex gap-3 mt-4">
+
+                        <a href="#"><i class="fab fa-facebook fa-lg text-white"></i></a>
+
+                        <a href="#"><i class="fab fa-instagram fa-lg text-white"></i></a>
+
+                        <a href="#"><i class="fab fa-youtube fa-lg text-white"></i></a>
+
+                        <a href="#"><i class="fab fa-linkedin fa-lg text-white"></i></a>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-2">
+
+                    <h4>Quick Links</h4>
+
+                    <ul>
+
+                        <li><a href="#">Home</a></li>
+
+                        <li><a href="buy-cars.html">Buy Cars</a></li>
+
+                        <li><a href="sell-car.html">Sell Car</a></li>
+
+                        <li><a href="finance.html">Finance</a></li>
+
+                        <li><a href="about.html">About</a></li>
+
+                        <li><a href="#" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</a></li>
+
+                    </ul>
+
+                </div>
+
+                <div class="col-lg-3">
+
+                    <h4>Luxury Brands</h4>
+
+                    <ul>
+
+                        <li><a href="#">BMW</a></li>
+
+                        <li><a href="#">Audi</a></li>
+
+                        <li><a href="#">Mercedes-Benz</a></li>
+
+                        <li><a href="#">Jaguar</a></li>
+
+                        <li><a href="#">Volvo</a></li>
+
+                        <li><a href="#">Lexus</a></li>
+
+                    </ul>
+
+                </div>
+
+                <div class="col-lg-3">
+
+                    <h4>Contact</h4>
+
+                    <p>
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        Bangalore, Karnataka
+
+                    </p>
+
+                    <p>
+
+                        <a target="_blank" href="tel:919876543210">
+                            <i class="fa-solid fa-phone"></i>
+
+                            +91 98765 43210
+                        </a>
+
+                    </p>
+
+                    <p>
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                        info@saharacars.com
+
+                    </p>
+
+                    <p>
+
+                        <a target="_blank" href="https://wa.me/919876543210">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+
+                        WhatsApp Support
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="copy">
+
+                © 2026 Sahara Cars. All Rights Reserved. Designed by <a href="https://www.thiven.com"
+                    target="_blank">THIVEN</a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <!-- Contact Modal -->
+
+    <div class="modal fade" id="contactModal" tabindex="-1">
+
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+
+            <div class="modal-content border-0 rounded-4 overflow-hidden">
+
+                <div class="row g-0">
+
+                    <!-- Left -->
+
+                    <div class="col-lg-5 text-white p-5" style="background:linear-gradient(135deg,#111,#ff4d00);">
+
+                        <h2 class="fw-bold mb-3">
+                            Sahara Cars
+                        </h2>
+
+                        <p class="mb-4">
+
+                            Looking for your dream car?
+
+                            Our experts will contact you within
+                            30 minutes.
+
+                        </p>
+
+                        <div class="mb-4">
+
+                            <h6>
+
+                                <a target="_blank" href="tel:919876543210">
+                                    <i class="fa-solid fa-phone me-2"></i>
+
+                                    +91 98765 43210
+                                </a>
+
+                            </h6>
+
+                            <h6>
+
+                                <i class="fab fa-whatsapp me-2"></i>
+
+                                WhatsApp Support
+
+                            </h6>
+
+                            <h6>
+
+                                <i class="fa-solid fa-envelope me-2"></i>
+
+                                info@saharacars.com
+
+                            </h6>
+
+                            <h6>
+
+                                <i class="fa-solid fa-location-dot me-2"></i>
+
+                                Bangalore, Karnataka
+
+                            </h6>
+
+                        </div>
+
+                        <div class="d-flex gap-3">
+
+                            <a href="https://wa.me/919876543210" class="btn btn-light rounded-pill">
+
+                                <i class="fab fa-whatsapp"></i>
+
+                            </a>
+
+                            <a class="btn btn-light rounded-pill" target="_blank" href="tel:919876543210">
+
+                                <i class="fa-solid fa-phone"></i>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Right -->
+
+                    <div class="col-lg-7" data-aos="fade-right">
+
+                        <div class="p-5">
+
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+
+                                <h3 class="fw-bold">
+
+                                    Contact Us
+
+                                </h3>
+
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+
+                            </div>
+
+                            <form>
+
+                                <div class="mb-3">
+
+                                    <label class="form-label">
+
+                                        Full Name
+
+                                    </label>
+
+                                    <input type="text" class="form-control form-control-lg"
+                                        placeholder="Enter your name">
+
+                                </div>
+
+                                <div class="mb-3">
+
+                                    <label class="form-label">
+
+                                        Mobile Number
+
+                                    </label>
+
+                                    <input type="tel" class="form-control form-control-lg" placeholder="+91">
+
+                                </div>
+
+                                <div class="mb-3">
+
+                                    <label class="form-label">
+
+                                        Email Address
+
+                                    </label>
+
+                                    <input type="email" class="form-control form-control-lg"
+                                        placeholder="example@gmail.com">
+
+                                </div>
+
+                                <div class="mb-3">
+
+                                    <label class="form-label">
+
+                                        Interested Car
+
+                                    </label>
+
+                                    <select class="form-select form-select-lg">
+
+                                        <option>Select Car</option>
+
+                                        <option>BMW X5</option>
+
+                                        <option>BMW 5 Series</option>
+
+                                        <option>Audi A6</option>
+
+                                        <option>Audi Q7</option>
+
+                                        <option>Mercedes GLC</option>
+
+                                        <option>Mercedes C-Class</option>
+
+                                        <option>Jaguar XF</option>
+
+                                    </select>
+
+                                </div>
+
+                                <div class="mb-4">
+
+                                    <label class="form-label">
+
+                                        Message
+
+                                    </label>
+
+                                    <textarea rows="4" class="form-control"
+                                        placeholder="Tell us your requirement"></textarea>
+
+                                </div>
+
+                                <div class="d-grid">
+
+                                    <button class="btn btn-danger btn-lg rounded-pill">
+
+                                        Submit Enquiry
+
+                                    </button>
+
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Floating Buttons -->
+
+    <a href="#" id="topBtn" style="
+position:fixed;
+right:25px;
+bottom:25px;
+width:55px;
+height:55px;
+border-radius:50%;
+background:#ff3b00;
+display:flex;
+justify-content:center;
+align-items:center;
+color:#fff;
+font-size:22px;
+box-shadow:0 15px 30px rgba(0,0,0,.25);
+display:none;
+z-index:9999;
+">
+
+        <i class="fa-solid fa-arrow-up"></i>
+
+    </a>
+
+    <a href="https://wa.me/919876543210" style="
+position:fixed;
+left:25px;
+bottom:25px;
+width:60px;
+height:60px;
+border-radius:50%;
+background:#25D366;
+display:flex;
+justify-content:center;
+align-items:center;
+color:#fff;
+font-size:28px;
+box-shadow:0 15px 30px rgba(0,0,0,.25);
+z-index:9999;
+">
+
+        <i class="fab fa-whatsapp"></i>
+
+    </a>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+
+        // Sticky Navbar
+
+        window.addEventListener("scroll", function () {
+
+            let nav = document.querySelector(".navbar");
+
+            if (window.scrollY > 80) {
+
+                nav.style.background = "#111";
+                nav.style.padding = "12px 0";
+                nav.style.borderRadius = "12px";
+
+            } else {
+
+                nav.style.background = "transparent";
+                nav.style.padding = "18px 0";
+
+            }
+
+        });
+
+
+
+        // Scroll Button
+
+        const topBtn = document.getElementById("topBtn");
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > 400) {
+
+                topBtn.style.display = "flex";
+
+            } else {
+
+                topBtn.style.display = "none";
+
+            }
+
+        });
+
+        topBtn.onclick = function (e) {
+
+            e.preventDefault();
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+        }
+
+
+
+        // Smooth Scroll
+
+        document.querySelectorAll("a[href^='#']").forEach(anchor => {
+
+            anchor.addEventListener("click", function (e) {
+
+                const target = document.querySelector(this.getAttribute("href"));
+
+                if (target) {
+
+                    e.preventDefault();
+
+                    target.scrollIntoView({
+
+                        behavior: "smooth"
+
+                    });
+
+                }
+
+            });
+
+        });
+
+
+
+        // Search Button Demo
+
+        const searchBtn = document.querySelector(".search-btn");
+
+        if (searchBtn) {
+
+            searchBtn.addEventListener("click", () => {
+
+                // alert("Search functionality can be connected to your Laravel backend.");
+
+            });
+
+        }
+
+
+
+        // Card Animation
+
+        const cards = document.querySelectorAll(".car-card");
+
+        cards.forEach(card => {
+
+            card.addEventListener("mouseenter", () => {
+
+                card.style.transform = "translateY(-12px)";
+
+            });
+
+            card.addEventListener("mouseleave", () => {
+
+                card.style.transform = "translateY(0px)";
+
+            });
+
+        });
+
+    </script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+        AOS.init({
+            duration: 900,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 80
+        });
+    </script>
+    <script>
+        document.querySelectorAll(".counter").forEach(counter => {
+
+            const update = () => {
+
+                const target = +counter.dataset.count;
+
+                const current = +counter.innerText;
+
+                const inc = target / 20;
+
+                if (current < target) {
+
+                    counter.innerText = Math.ceil(current + inc);
+
+                    requestAnimationFrame(update);
+
+                } else {
+
+                    counter.innerText = target + "+";
+
+                }
+
+            }
+
+            update();
+
+        });
+    </script>
+</body>
+
+</html>
