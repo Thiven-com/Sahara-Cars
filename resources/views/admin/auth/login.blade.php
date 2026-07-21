@@ -194,7 +194,7 @@
         <div class="login-card">
 
             <div class="login-header">
-                <img src="{{ asset('website/images/logo1.png') }}" class="logo">
+                <img src="{{ asset($site->site_logo) }}" class="logo">
 
                 <h2>Welcome Back 👋</h2>
 

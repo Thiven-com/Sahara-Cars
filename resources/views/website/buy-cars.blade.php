@@ -658,7 +658,7 @@
 
                                             </a>
 
-                                            <a href="https://wa.me/919876543210" target="_blank" class="call-icons">
+                                            <a href="https://wa.me/{{$site->phone}}" target="_blank" class="call-icons">
 
                                                 <i class="fab fa-whatsapp"></i>
 

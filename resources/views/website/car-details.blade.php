@@ -867,7 +867,7 @@
 
                             </button>
 
-                            <a href="https://wa.me/919999999999?text={{ urlencode('Hi, I am interested in ' . $car->model) }}"
+                            <a href="https://wa.me/{{$site->phone}}?text={{ urlencode('Hi, I am interested in ' . $car->model) }}"
                                 target="_blank" class="btn btn-success btn-lg">
 
                                 <i class="fab fa-whatsapp me-2"></i>
@@ -876,7 +876,7 @@
 
                             </a>
 
-                            <a href="tel:+919999999999" class="btn btn-outline-dark btn-lg">
+                            <a href="tel:{{$site->phone}}" class="btn btn-outline-dark btn-lg">
 
                                 <i class="fa-solid fa-phone me-2"></i>
 
@@ -1423,7 +1423,7 @@
 
                                 <div class="d-flex gap-3">
 
-                                    <a href="tel:+919876543210" class="btn btn-light rounded-pill">
+                                    <a href="tel:{{$site->phone}}" class="btn btn-light rounded-pill">
 
                                         <i class="fa-solid fa-phone me-2"></i>
 
@@ -1431,7 +1431,7 @@
 
                                     </a>
 
-                                    <a href="https://wa.me/919876543210?text={{ urlencode('Hi, I am interested in ' . $car->model) }}"
+                                    <a href="https://wa.me/{{$site->phone}}?text={{ urlencode('Hi, I am interested in ' . $car->model) }}"
                                         target="_blank" class="btn btn-success rounded-pill">
 
                                         <i class="fab fa-whatsapp me-2"></i>

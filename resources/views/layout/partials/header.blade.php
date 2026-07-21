@@ -5,15 +5,15 @@
             <div class="header-left active">
                 <a href="{{ url('admin/dashboard') }}"
                     class="logo logo-normal d-flex align-items-center justify-content-center w-100">
-                    <img src="{{ asset('website/images/logo1.png') }}" alt="Logo" style="width:100px; margin-right:-10px;">
+                    <img src="{{ asset($site->site_logo) }}" alt="Logo" style="width:100px; margin-right:-10px;">
                     {{-- <img src="{{ asset('website/images/vishwa.png') }}" alt="Vishwa" style="height:50px;"> --}}
                 </a>
                 <a href="{{url('admin/dashboard')}}" class="logo logo-white">
-                    <img src="{{ asset('website/images/logo1.png') }}" alt="Logo" style="width:100px; margin-right:-10px;">
+                    <img src="{{ asset($site->site_logo) }}" alt="Logo" style="width:100px; margin-right:-10px;">
                     {{-- <img src="{{ asset('website/images/vishwa.png') }}" alt="Vishwa" style="height:50px;"> --}}
                 </a>
                 <a href="{{url('admin/dashboard')}}" class="logo-small">
-                    <img src="{{ asset('website/images/logo1.png') }}" alt="Logo" style="width:100px; margin-right:-10px;">
+                    <img src="{{ asset($site->site_logo) }}" alt="Logo" style="width:100px; margin-right:-10px;">
                     {{-- <img src="{{ asset('website/images/vishwa.png') }}" alt="Vishwa" style="height:50px;"> --}}
                 </a>
             </div>

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Sahara Cars</title>
+    <title>{{ $site->site_name ?? "SAHARA CARS" }}</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -652,8 +652,8 @@ RESPONSIVE
 
             <nav class="navbar navbar-expand-lg">
 
-                <a class="navbar-brand" href="{{ route('home') }}">
-                    <span class="text-white">SAHARA</span> <span>CARS</span>
+                <a class="navbar-brand" href="{{ route('home') }}" style="max-width: 200px">
+                    <img src="{{ asset($site->site_logo) }}" alt="">
                 </a>
 
                 <button class="navbar-toggler bg-white" data-bs-toggle="collapse" data-bs-target="#menu">
@@ -695,11 +695,11 @@ RESPONSIVE
 
                     <div class="contact-icons">
 
-                        <a target="_blank" href="https://wa.me/919876543210">
+                        <a target="_blank" href="https://wa.me/{{$site->phone}}">
                             <i class="fab fa-whatsapp"></i>
                         </a>
 
-                        <a target="_blank" href="tel:919876543210">
+                        <a target="_blank" href="tel:{{$site->phone}}">
                             <i class="fa-solid fa-phone"></i>
                         </a>
 
@@ -734,7 +734,10 @@ FOOTER
 
                 <div class="col-lg-4">
 
-                    <h4>SAHARA CARS</h4>
+                    {{-- <h4>SAHARA CARS</h4> --}}
+                     <a class="navbar-brand" href="{{ route('home') }}" style="max-width: 200px">
+                    <img src="{{ asset($site->site_logo) }}" alt="">
+                </a>
 
                     <p>
 
@@ -780,7 +783,7 @@ FOOTER
 
                 </div>
                 @php
-                $footerBrands = App\Models\Brand::where('status', 1)->inRandomOrder()->take(5)->get();
+                    $footerBrands = App\Models\Brand::where('status', 1)->inRandomOrder()->take(5)->get();
                 @endphp
                 <div class="col-lg-3">
 
@@ -816,16 +819,15 @@ FOOTER
 
                         <i class="fa-solid fa-location-dot"></i>
 
-                        Bangalore, Karnataka
+                        {{$site->address}}
 
                     </p>
 
                     <p>
 
-                        <a target="_blank" href="tel:919876543210">
+                        <a target="_blank" href="tel:{{$site->phone}}">
                             <i class="fa-solid fa-phone"></i>
-
-                            +91 98765 43210
+                            {{$site->phone}}
                         </a>
 
                     </p>
@@ -834,13 +836,13 @@ FOOTER
 
                         <i class="fa-solid fa-envelope"></i>
 
-                        info@saharacars.com
+                        {{$site->email}}
 
                     </p>
 
                     <p>
 
-                        <a target="_blank" href="https://wa.me/919876543210">
+                        <a target="_blank" href="https://wa.me/{{$site->phone}}">
                             <i class="fab fa-whatsapp"></i>
                         </a>
 
@@ -877,9 +879,12 @@ FOOTER
 
                     <div class="col-lg-5 text-white p-5" style="background:linear-gradient(135deg,#111,#ff4d00);">
 
-                        <h2 class="fw-bold mb-3">
+                        {{-- <h2 class="fw-bold mb-3">
                             Sahara Cars
-                        </h2>
+                        </h2> --}}
+                        <a class="navbar-brand" href="{{ route('home') }}" style="max-width: 200px">
+                            <img src="{{ asset($site->site_logo) }}" alt="">
+                        </a>
 
                         <p class="mb-4">
 
@@ -894,10 +899,10 @@ FOOTER
 
                             <h6>
 
-                                <a target="_blank" href="tel:919876543210">
+                                <a target="_blank" href="tel:{{$site->phone}}">
                                     <i class="fa-solid fa-phone me-2"></i>
 
-                                    +91 98765 43210
+                                    {{$site->phone}}
                                 </a>
 
                             </h6>
@@ -922,7 +927,7 @@ FOOTER
 
                                 <i class="fa-solid fa-location-dot me-2"></i>
 
-                                Bangalore, Karnataka
+                                {{$site->address}}
 
                             </h6>
 
@@ -930,13 +935,13 @@ FOOTER
 
                         <div class="d-flex gap-3">
 
-                            <a href="https://wa.me/919876543210" class="btn btn-light rounded-pill">
+                            <a href="https://wa.me/{{$site->phone}}" class="btn btn-light rounded-pill">
 
                                 <i class="fab fa-whatsapp"></i>
 
                             </a>
 
-                            <a class="btn btn-light rounded-pill" target="_blank" href="tel:919876543210">
+                            <a class="btn btn-light rounded-pill" target="_blank" href="tel:{{$site->phone}}">
 
                                 <i class="fa-solid fa-phone"></i>
 
@@ -1034,7 +1039,7 @@ z-index:9999;
 
     </a>
 
-    <a href="https://wa.me/919876543210" style="
+    <a href="https://wa.me/{{$site->phone}}" style="
 position:fixed;
 left:25px;
 bottom:25px;
@@ -1049,7 +1054,7 @@ color:#fff;
 font-size:28px;
 box-shadow:0 15px 30px rgba(0,0,0,.25);
 z-index:9999;
-">
+" target="_blank">
 
         <i class="fab fa-whatsapp"></i>
 

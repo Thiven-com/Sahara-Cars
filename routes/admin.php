@@ -43,6 +43,10 @@ Route::group(['middleware' => 'admin'], function () {
 
     Route::resource('enquiries', EnquiryController::class)->names('admin.enquiries');
     Route::resource('galleries', GalleryController::class)->names('admin.gallery');
+
+    Route::get('settings/company', 'SiteSettingController@site')->name('admin.settings.company');
+    Route::post('setting/company/update', 'SiteSettingController@company_setting_update')->name('admin.settings.company.update');
+
 });
 
 Route::get('forgot-password', [AuthController::class, 'showForgotForm'])

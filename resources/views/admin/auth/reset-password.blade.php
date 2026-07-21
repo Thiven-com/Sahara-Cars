@@ -143,7 +143,7 @@ body{
     <div class="reset-card">
 
         <div class="logo">
-            <img src="{{ asset('website/images/logo1.png') }}" alt="Logo">
+            <img src="{{ asset($site->site_logo) }}" alt="Logo">
         </div>
 
         <div class="heading">

@@ -3,15 +3,15 @@
         <!-- Logo -->
         <div class="sidebar-logo active">
                 <a href="{{ url('admin/dashboard') }}" class="logo logo-normal d-flex align-items-center">
-                        <img src="{{ asset('website/images/logo1.png') }}" alt="Logo">
+                        <img src="{{ asset($site->site_logo) }}" alt="Logo">
                         {{-- <img src="{{ asset('website/images/vishwa.png') }}" alt="Vishwa" style="height:50px;"> --}}
                 </a>
                 <a href="{{url('admin/dashboard')}}" class="logo logo-white">
-                        <img src="{{asset('website')}}/images/logo1.png" alt="Img">
+                        <img src="{{ asset($site->site_logo) }}" alt="Img">
                         {{-- <img src="{{asset('website')}}/images/vishwa.png" alt="Img"> --}}
                 </a>
                 <a href="{{url('admin/dashboard')}}" class="logo-small">
-                        <img src="{{asset('website')}}/images/logo1.png" alt="Img">
+                        <img src="{{ asset($site->site_logo) }}" alt="Img">
                         {{-- <img src="{{asset('website')}}/images/vishwa.png" alt="Img"> --}}
                 </a>
                 <a id="toggle_btn" href="javascript:void(0);">
@@ -89,6 +89,7 @@
                                                 </li>
 
 
+
                                         </ul>
                                 </li>
 
@@ -96,6 +97,13 @@
                                 <li class="submenu-open">
                                         <h6 class="submenu-hdr">Settings</h6>
                                         <ul>
+                                                <li
+                                                        class="{{ request()->routeIs('admin.settings.company.*') ? 'active' : '' }}">
+                                                        <a href="{{ route('admin.settings.company') }}">
+                                                                <i class="ti ti-address-book fs-16 me-2"></i>
+                                                                <span>Settings</span>
+                                                        </a>
+                                                </li>
                                                 <li>
                                                         <a href="{{ route('admin.logout') }}"
                                                                 class="{{ Request::is('signin') ? 'active' : '' }}"><i

@@ -750,7 +750,7 @@
 
     </section>
 
-    <section class="section bg-light">
+    {{-- <section class="section bg-light">
 
         <div class="container">
 
@@ -896,7 +896,7 @@
 
         </div>
 
-    </section>
+    </section> --}}
 
     <section class="section">
 
@@ -974,7 +974,7 @@
 
     </section>
 
-    <section class="section bg-light">
+    {{-- <section class="section bg-light">
 
         <div class="container">
 
@@ -1021,7 +1021,7 @@
 
         </div>
 
-    </section>
+    </section> --}}
 
     <section class="section">
 
@@ -1259,7 +1259,7 @@
 
     </section>
 
-    <section class="section">
+    {{-- <section class="section">
 
         <div class="container">
 
@@ -1364,7 +1364,7 @@
 
         </div>
 
-    </section>
+    </section> --}}
 
 
     <script>

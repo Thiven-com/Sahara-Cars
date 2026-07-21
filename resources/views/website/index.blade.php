@@ -301,13 +301,13 @@
 
                                     <div class="call-icons">
 
-                                        <a href="https://wa.me/919876543210" target="_blank">
+                                        <a href="https://wa.me/{{$site->phone}}" target="_blank">
 
                                             <i class="fab fa-whatsapp"></i>
 
                                         </a>
 
-                                        <a href="tel:919876543210">
+                                        <a href="tel:{{$site->phone}}">
 
                                             <i class="fa-solid fa-phone"></i>
 
