@@ -908,7 +908,8 @@
                             </span>
                         </p>
 
-                        <button class="btn btn-danger w-100 mt-4 btn-lg">
+                        <button class="btn btn-danger w-100 mt-4 btn-lg" data-bs-toggle="modal"
+                            data-bs-target="#contactModal">
 
                             Apply For Finance
 

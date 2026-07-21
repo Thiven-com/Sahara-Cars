@@ -334,15 +334,15 @@
 
                 </h2>
 
-                <p class="text-muted">
+                {{-- <p class="text-muted">
 
                     Luxury. Performance. Elegance.
 
-                </p>
+                </p> --}}
 
             </div>
 
-            <div class="text-center mb-5">
+            {{-- <div class="text-center mb-5">
 
                 <button class="filter-btn active">
 
@@ -380,30 +380,31 @@
 
                 </button>
 
-            </div>
+            </div> --}}
 
             <div class="masonry">
-                <!-- BMW -->
 
-                <div class="item" data-aos="zoom-in">
+                @forelse($galleries as $gallery)
 
-                    <div class="gallery-card">
+                    <div class="item" data-aos="zoom-in">
 
-                        <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=900">
+                        <div class="gallery-card">
 
-                        <div class="overlay">
+                            <img src="{{ asset($gallery->image) }}" alt="{{ $gallery->title }}">
 
-                            <div class="d-flex justify-content-between align-items-center">
+                            <div class="overlay">
 
-                                <div>
+                                <div class="d-flex justify-content-between align-items-center">
 
-                                    <h5>BMW M5</h5>
+                                    <div>
 
-                                    <p>Luxury Sedan</p>
+                                        <h5>{{ $gallery->title ?: 'Gallery Image' }}</h5>
+
+                                    </div>
+
+                                    {{-- <i class="fa-solid fa-expand"></i> --}}
 
                                 </div>
-
-                                <i class="fa-solid fa-expand"></i>
 
                             </div>
 
@@ -411,506 +412,26 @@
 
                     </div>
 
-                </div>
+                @empty
 
+                    <div class="col-12 text-center py-5">
 
-
-                <!-- Audi -->
-
-                <div class="item" data-aos="zoom-in" data-aos-delay="100">
-
-                    <div class="gallery-card">
-
-                        <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=900">
-
-                        <div class="overlay">
-
-                            <div class="d-flex justify-content-between">
-
-                                <div>
-
-                                    <h5>Audi RS7</h5>
-
-                                    <p>Performance Coupe</p>
-
-                                </div>
-
-                                <i class="fa-solid fa-camera"></i>
-
-                            </div>
-
-                        </div>
+                        <h5>No Gallery Images Available</h5>
 
                     </div>
 
-                </div>
-
-
-
-                <!-- Mercedes -->
-
-                <div class="item" data-aos="zoom-in" data-aos-delay="200">
-
-                    <div class="gallery-card">
-
-                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900">
-
-                        <div class="overlay">
-
-                            <div class="d-flex justify-content-between">
-
-                                <div>
-
-                                    <h5>Mercedes AMG</h5>
-
-                                    <p>Luxury Collection</p>
-
-                                </div>
-
-                                <i class="fa-solid fa-expand"></i>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- Jaguar -->
-
-                <div class="item" data-aos="zoom-in">
-
-                    <div class="gallery-card">
-
-                        <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=900">
-
-                        <div class="overlay">
-
-                            <div class="d-flex justify-content-between">
-
-                                <div>
-
-                                    <h5>Jaguar XF</h5>
-
-                                    <p>Premium Sedan</p>
-
-                                </div>
-
-                                <i class="fa-solid fa-heart"></i>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- BMW SUV -->
-
-                <div class="item" data-aos="zoom-in" data-aos-delay="100">
-
-                    <div class="gallery-card">
-
-                        <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=900">
-
-                        <div class="overlay">
-
-                            <div class="d-flex justify-content-between">
-
-                                <div>
-
-                                    <h5>BMW X7</h5>
-
-                                    <p>Luxury SUV</p>
-
-                                </div>
-
-                                <i class="fa-solid fa-expand"></i>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- Lexus -->
-
-                <div class="item" data-aos="zoom-in" data-aos-delay="200">
-
-                    <div class="gallery-card">
-
-                        <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=900">
-
-                        <div class="overlay">
-
-                            <div class="d-flex justify-content-between">
-
-                                <div>
-
-                                    <h5>Lexus RX</h5>
-
-                                    <p>Hybrid Luxury</p>
-
-                                </div>
-
-                                <i class="fa-solid fa-expand"></i>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- Volvo -->
-
-                <div class="item" data-aos="zoom-in">
-
-                    <div class="gallery-card">
-
-                        <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=900">
-
-                        <div class="overlay">
-
-                            <div class="d-flex justify-content-between">
-
-                                <div>
-
-                                    <h5>Volvo XC90</h5>
-
-                                    <p>Luxury SUV</p>
-
-                                </div>
-
-                                <i class="fa-solid fa-expand"></i>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- Porsche -->
-
-                <div class="item" data-aos="zoom-in" data-aos-delay="100">
-
-                    <div class="gallery-card">
-
-                        <img src="https://images.unsplash.com/photo-1502161254066-6c74afbf07aa?w=900">
-
-                        <div class="overlay">
-
-                            <div class="d-flex justify-content-between">
-
-                                <div>
-
-                                    <h5>Porsche 911</h5>
-
-                                    <p>Sports Car</p>
-
-                                </div>
-
-                                <i class="fa-solid fa-expand"></i>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- Showroom -->
-
-                <div class="item" data-aos="zoom-in" data-aos-delay="200">
-
-                    <div class="gallery-card">
-
-                        <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=900">
-
-                        <div class="overlay">
-
-                            <div class="d-flex justify-content-between">
-
-                                <div>
-
-                                    <h5>Premium Showroom</h5>
-
-                                    <p>Sahara Cars</p>
-
-                                </div>
-
-                                <i class="fa-solid fa-play"></i>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- Delivery -->
-
-                <div class="item" data-aos="zoom-in">
-
-                    <div class="gallery-card">
-
-                        <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=900">
-
-                        <div class="overlay">
-
-                            <div class="d-flex justify-content-between">
-
-                                <div>
-
-                                    <h5>Customer Delivery</h5>
-
-                                    <p>Happy Moments</p>
-
-                                </div>
-
-                                <i class="fa-solid fa-camera"></i>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
+                @endforelse
 
             </div>
 
         </div>
 
     </section>
-
-    <section class="section bg-dark">
-
-        <div class="container">
-
-            <div class="text-center mb-5 text-white">
-
-                <h2>
-
-                    Video Gallery
-
-                </h2>
-
-                <p>
-
-                    Watch our premium collection in action.
-
-                </p>
-
-            </div>
-
-            <div class="row g-4">
-
-                <div class="col-lg-4" data-aos="fade-up">
-
-                    <div class="gallery-card">
-
-                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900">
-
-                        <div class="overlay">
-
-                            <div class="text-center">
-
-                                <div
-                                    style="width:70px;height:70px;background:#ff4d00;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;">
-
-                                    <i class="fa-solid fa-play text-white fa-xl"></i>
-
-                                </div>
-
-                                <h5 class="mt-4">
-
-                                    BMW Walkaround
-
-                                </h5>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="150">
-
-                    <div class="gallery-card">
-
-                        <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=900">
-
-                        <div class="overlay">
-
-                            <div class="text-center">
-
-                                <div
-                                    style="width:70px;height:70px;background:#ff4d00;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;">
-
-                                    <i class="fa-solid fa-play text-white fa-xl"></i>
-
-                                </div>
-
-                                <h5 class="mt-4">
-
-                                    Audi RS Review
-
-                                </h5>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-
-                    <div class="gallery-card">
-
-                        <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=900">
-
-                        <div class="overlay">
-
-                            <div class="text-center">
-
-                                <div
-                                    style="width:70px;height:70px;background:#ff4d00;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;">
-
-                                    <i class="fa-solid fa-play text-white fa-xl"></i>
-
-                                </div>
-
-                                <h5 class="mt-4">
-
-                                    Showroom Tour
-
-                                </h5>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <section class="section">
-
-        <div class="container">
-
-            <div class="row align-items-center">
-
-                <div class="col-lg-6" data-aos="fade-right">
-
-                    <h6 class="text-danger fw-bold">
-
-                        PREMIUM EXPERIENCE
-
-                    </h6>
-
-                    <h2 class="fw-bold mb-4">
-
-                        Visit Our Luxury Showroom
-
-                    </h2>
-
-                    <p class="text-muted mb-4">
-
-                        Experience India's finest collection of premium
-                        luxury vehicles in an elegant showroom designed
-                        for automotive enthusiasts.
-
-                    </p>
-
-                    <div class="row">
-
-                        <div class="col-6 mb-3">
-
-                            ✔ Certified Cars
-
-                        </div>
-
-                        <div class="col-6 mb-3">
-
-                            ✔ Test Drive
-
-                        </div>
-
-                        <div class="col-6">
-
-                            ✔ Finance Support
-
-                        </div>
-
-                        <div class="col-6">
-
-                            ✔ Exchange
-
-                        </div>
-
-                    </div>
-
-                    <a href="#" class="btn btn-danger btn-lg mt-4">
-
-                        Book Showroom Visit
-
-                    </a>
-
-                </div>
-
-                <div class="col-lg-6" data-aos="fade-left">
-
-                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200"
-                        class="img-fluid rounded-4 shadow">
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
 
     <section style="
-    background:#111;
-    padding:90px 0;
-    ">
+        background:#111;
+        padding:90px 0;
+        ">
 
         <div class="container">
 

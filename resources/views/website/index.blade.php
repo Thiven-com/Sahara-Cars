@@ -97,8 +97,8 @@
     </section>
 
     <!--=========================
-            SEARCH SECTION
-            ==========================-->
+                SEARCH SECTION
+                ==========================-->
 
     <section class="container">
 
@@ -200,8 +200,8 @@
     </section>
 
     <!--=========================
-            LATEST CARS
-            ==========================-->
+                LATEST CARS
+                ==========================-->
 
     <section class="section">
 
@@ -349,8 +349,8 @@
 
     </section>
     <!-- =========================
-            WHY CHOOSE SAHARA CARS
-            ========================= -->
+                WHY CHOOSE SAHARA CARS
+                ========================= -->
 
     <section class="features">
 
@@ -445,8 +445,8 @@
 
 
     <!-- =========================
-            COUNTER
-            ========================= -->
+                COUNTER
+                ========================= -->
 
     <section class="section bg-white">
 
@@ -497,8 +497,8 @@
 
 
     <!-- =========================
-            FINANCE SECTION
-            ========================= -->
+                FINANCE SECTION
+                ========================= -->
 
     <section class="section">
 
@@ -582,8 +582,8 @@
 
 
     <!-- =========================
-            TESTIMONIALS
-            ========================= -->
+                TESTIMONIALS
+                ========================= -->
 
     <section class="section bg-light">
 
@@ -722,64 +722,55 @@
 
     </section>
 
+    <section class="my-5">
 
+        <h2 class="fw-bold text-center mb-5">
+            Popular Brands
+        </h2>
 
+        <div class="row g-4 justify-content-center">
 
+            @forelse($brands as $index => $brand)
 
-    <!-- =========================
-            BRANDS
-            ========================= -->
+                <div class="col-lg-2 col-md-3 col-6" data-aos="fade-up" data-aos-delay="{{ ($index + 1) * 100 }}">
 
-    <section class="section">
+                    <a href="{{ route('buyCars', ['brand' => $brand->id]) }}" class="text-decoration-none">
 
-        <div class="container">
+                        <div class="card border-0 shadow-sm rounded-4 text-center h-100 py-4">
 
-            <div class="row text-center g-4">
+                            @if($brand->logo)
+                                <img src="{{ asset($brand->logo) }}" alt="{{ $brand->name }}" class="mx-auto mb-3"
+                                    style="height:60px;object-fit:contain;">
+                            @else
+                                <i class="fa-solid fa-car-side fa-3x text-danger mb-3"></i>
+                            @endif
 
-                <div class="col" data-aos="fade-up" data-aos-delay="100">
+                            <h5 class="fw-bold mb-0">
+                                {{ strtoupper($brand->name) }}
+                            </h5>
 
-                    <h4>BMW</h4>
+                        </div>
 
-                </div>
-
-                <div class="col" data-aos="fade-up" data-aos-delay="200">
-
-                    <h4>AUDI</h4>
-
-                </div>
-
-                <div class="col" data-aos="fade-up" data-aos-delay="300">
-
-                    <h4>MERCEDES</h4>
-
-                </div>
-
-                <div class="col" data-aos="fade-up" data-aos-delay="400">
-
-                    <h4>VOLVO</h4>
+                    </a>
 
                 </div>
 
-                <div class="col" data-aos="fade-up" data-aos-delay="500">
+            @empty
 
-                    <h4>JAGUAR</h4>
-
+                <div class="col-12">
+                    <div class="alert alert-info text-center">
+                        No Brands Available
+                    </div>
                 </div>
 
-                <div class="col" data-aos="fade-up" data-aos-delay="600">
-
-                    <h4>LEXUS</h4>
-
-                </div>
-
-            </div>
+            @endforelse
 
         </div>
 
     </section>
     <!-- =========================
-            NEWSLETTER
-            ========================= -->
+                NEWSLETTER
+                ========================= -->
 
     <section class="section" style="background:#ff3b00;color:#fff;" data-aos="fade-up">
 

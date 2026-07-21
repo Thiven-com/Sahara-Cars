@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\EnquiryController;
 use App\Http\Controllers\Admin\FeatureController;
+use App\Http\Controllers\Admin\GalleryController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -41,6 +42,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('contacts', ContactController::class)->names('admin.contacts');
 
     Route::resource('enquiries', EnquiryController::class)->names('admin.enquiries');
+    Route::resource('galleries', GalleryController::class)->names('admin.gallery');
 });
 
 Route::get('forgot-password', [AuthController::class, 'showForgotForm'])

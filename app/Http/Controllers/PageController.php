@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Brand;
 use App\Models\Car;
 use App\Models\Category;
+use App\Models\Gallery;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -106,7 +107,12 @@ class PageController extends Controller
     }
     public function gallery()
     {
-        return view("website.gallery");
+        $galleries = Gallery::where('status', 1)
+            ->orderBy('sort_order')
+            ->latest()
+            ->get();
+
+        return view('website.gallery', compact('galleries'));
     }
     public function carDetails($slug)
     {

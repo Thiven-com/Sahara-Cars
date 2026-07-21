@@ -66,6 +66,12 @@
                                                                 <span>Cars</span>
                                                         </a>
                                                 </li>
+                                                <li class="{{ request()->routeIs('admin.gallery.*') ? 'active' : '' }}">
+                                                        <a href="{{ route('admin.gallery.index') }}">
+                                                                <i class="ti ti-photo fs-16 me-2"></i>
+                                                                <span>Galleries</span>
+                                                        </a>
+                                                </li>
                                                 <li
                                                         class="{{ request()->routeIs('admin.enquiries.*') ? 'active' : '' }}">
                                                         <a href="{{ route('admin.enquiries.index') }}">

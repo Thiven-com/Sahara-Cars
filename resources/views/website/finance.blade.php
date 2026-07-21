@@ -520,7 +520,8 @@
 
                             </p>
 
-                            <a href="#" class="btn btn-main w-100 mt-4">
+                            <a href="#" class="btn btn-main w-100 mt-4" data-bs-toggle="modal"
+                            data-bs-target="#contactModal">
 
                                 Apply for Finance
 
@@ -943,7 +944,7 @@
         </div>
 
     </section>
-    <section class="section bg-light">
+    {{-- <section class="section bg-light">
 
         <div class="container">
 
@@ -1030,7 +1031,7 @@
 
         </div>
 
-    </section>
+    </section> --}}
     <section class="section">
 
         <div class="container">
