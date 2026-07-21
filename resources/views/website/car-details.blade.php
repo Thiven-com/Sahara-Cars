@@ -345,29 +345,6 @@
                                 {{ $car->registration_no }}
 
                             </p>
-
-                            <hr>
-
-                            <div class="row text-center">
-
-                                <div class="col">
-                                    <i class="fa-solid fa-heart fa-xl"></i>
-                                </div>
-
-                                <div class="col">
-                                    <i class="fa-solid fa-share-nodes fa-xl"></i>
-                                </div>
-
-                                <div class="col">
-                                    <i class="fa-solid fa-code-compare fa-xl"></i>
-                                </div>
-
-                                <div class="col">
-                                    <i class="fa-solid fa-360-degrees fa-xl"></i>
-                                </div>
-
-                            </div>
-
                         </div>
 
                     </div>
