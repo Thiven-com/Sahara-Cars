@@ -3,6 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
+use App\Models\Car;
+use App\Models\Category;
+use App\Models\Contact;
+use App\Models\Enquiry;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Admin;
@@ -31,7 +36,11 @@ class AuthController extends Controller
 
     public function dashboard()
     {
-        $data['enquiries'] = 20;
+        $data['enquiries'] = Enquiry::count();
+        $data['contacts'] = Contact::count();
+        $data['cars'] = Car::count();
+        $data['brands'] = Brand::count();
+        $data['categories'] = Category::count();
         return view('admin.auth.dashboard', compact('data'));
     }
 
