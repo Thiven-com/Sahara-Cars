@@ -641,6 +641,8 @@ RESPONSIVE
 
         }
     </style>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset($site->favicon) }}">
+
 
 </head>
 
