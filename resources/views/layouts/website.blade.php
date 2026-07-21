@@ -779,24 +779,30 @@ FOOTER
                     </ul>
 
                 </div>
-
+                @php
+                $footerBrands = App\Models\Brand::where('status', 1)->inRandomOrder()->take(5)->get();
+                @endphp
                 <div class="col-lg-3">
 
-                    <h4>Luxury Brands</h4>
+                    <h4>Brands</h4>
 
                     <ul>
 
-                        <li><a href="#">BMW</a></li>
+                        @forelse($footerBrands as $brand)
 
-                        <li><a href="#">Audi</a></li>
+                            <li>
+                                <a href="{{ route('buyCars', ['brand' => $brand->id]) }}">
+                                    {{ $brand->name }}
+                                </a>
+                            </li>
 
-                        <li><a href="#">Mercedes-Benz</a></li>
+                        @empty
 
-                        <li><a href="#">Jaguar</a></li>
+                            <li>
+                                <span class="text-muted">No Brands Available</span>
+                            </li>
 
-                        <li><a href="#">Volvo</a></li>
-
-                        <li><a href="#">Lexus</a></li>
+                        @endforelse
 
                     </ul>
 
