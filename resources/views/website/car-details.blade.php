@@ -247,6 +247,140 @@
 
         }
     </style>
+
+    <style>
+        .gallery-card {
+
+            overflow: hidden;
+
+            border-radius: 20px;
+
+            position: relative;
+
+            box-shadow: var(--shadow);
+
+            cursor: pointer;
+
+        }
+
+        .gallery-card img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: .5s;
+
+        }
+
+        .gallery-card:hover img {
+
+            transform: scale(1.08);
+
+        }
+
+        .overlay {
+
+            position: absolute;
+
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            padding: 25px;
+
+            background: linear-gradient(transparent, rgba(0, 0, 0, .85));
+
+            color: #fff;
+
+            opacity: 0;
+
+            transition: .35s;
+
+        }
+
+        .gallery-card:hover .overlay {
+
+            opacity: 1;
+
+        }
+
+        .overlay h5 {
+
+            margin-bottom: 8px;
+
+        }
+
+        .overlay i {
+
+            background: #fff;
+
+            color: #111;
+
+            width: 45px;
+
+            height: 45px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+        }
+
+        .masonry {
+
+            column-count: 3;
+
+            column-gap: 22px;
+
+        }
+
+        .item {
+
+            break-inside: avoid;
+
+            margin-bottom: 22px;
+
+        }
+
+        @media(max-width:992px) {
+
+            .masonry {
+
+                column-count: 2;
+
+            }
+
+            .hero h1 {
+
+                font-size: 44px;
+
+            }
+
+        }
+
+        @media(max-width:600px) {
+
+            .masonry {
+
+                column-count: 1;
+
+            }
+
+            .hero {
+
+                height: 60vh;
+
+            }
+
+        }
+    </style>
     <section class="hero">
 
         <div class="swiper heroSwiper">
@@ -902,7 +1036,61 @@
 
     </section>
 
+    <section class="section">
 
+        <div class="container">
+
+            <div class="text-center mb-5">
+
+                <h2 class="fw-bold">
+                    Gallery
+                </h2>
+            </div>
+            <div class="masonry">
+
+                @forelse($car->galleries as $gallery)
+
+                    <div class="item" data-aos="zoom-in">
+
+                        <div class="gallery-card">
+
+                            <img src="{{ asset($gallery->image) }}" alt="{{ $gallery->title }}">
+
+                            <div class="overlay">
+
+                                <div class="d-flex justify-content-between align-items-center">
+
+                                    <div>
+
+                                        <h5>{{ $gallery->title ?: 'Gallery Image' }}</h5>
+
+                                    </div>
+
+                                    {{-- <i class="fa-solid fa-expand"></i> --}}
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                @empty
+
+                    <div class="col-12 text-center py-5">
+
+                        <h5>No Gallery Images Available</h5>
+
+                    </div>
+
+                @endforelse
+
+            </div>
+
+        </div>
+
+    </section>
 
     <section class="section bg-light">
 
@@ -1453,6 +1641,24 @@
         </div>
 
     </div>
+
+    <div class="modal fade" id="galleryModal" tabindex="-1">
+
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+
+            <div class="modal-content bg-dark border-0">
+
+                <div class="modal-body p-0">
+
+                    <img id="modalImage" src="" class="img-fluid w-100">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @if(session('success'))
@@ -1570,5 +1776,28 @@
         document.getElementById("loanYears").addEventListener("input", calculateEMI);
 
         calculateEMI();
+    </script>
+
+    <script>
+        document.querySelectorAll(".gallery-card img")
+
+            .forEach(img => {
+
+                img.style.cursor = "pointer";
+
+                img.onclick = function () {
+
+                    document.getElementById("modalImage").src = this.src;
+
+                    new bootstrap.Modal(
+
+                        document.getElementById("galleryModal")
+
+                    ).show();
+
+                }
+
+            });
+
     </script>
 @endsection
