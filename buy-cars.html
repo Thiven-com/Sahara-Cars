@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Buy Cars | Sahara Cars</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Poppins, sans-serif;
+        }
+
+        body {
+            background: #f6f7fb;
+        }
+
+        :root {
+
+            --primary: #ff3b00;
+            --dark: #111;
+            --shadow: 0 15px 40px rgba(0, 0, 0, .08);
+
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /*=========================
+HEADER
+=========================*/
+
+        header {
+
+            background: #111;
+
+        }
+
+        .navbar-brand {
+
+            font-size: 34px;
+            font-weight: 800;
+            color: #fff;
+
+        }
+
+        .navbar-brand span {
+
+            color: var(--primary);
+
+        }
+
+        .nav-link {
+
+            color: #fff !important;
+            margin: 0 12px;
+
+        }
+
+        .btn-call {
+
+            background: var(--primary);
+            padding: 12px 30px;
+            color: #fff;
+            border-radius: 50px;
+
+        }
+
+        /*=========================
+PAGE HEADER
+=========================*/
+
+        .page-header {
+
+            background: linear-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)),
+                url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1900");
+
+            background-size: cover;
+            background-position: center;
+
+            padding: 120px 0;
+
+            color: #fff;
+
+        }
+
+        .page-header h1 {
+
+            font-size: 58px;
+            font-weight: 700;
+
+        }
+
+        .breadcrumb-item a {
+
+            color: #fff;
+
+        }
+
+        .breadcrumb-item.active {
+
+            color: #ddd;
+
+        }
+
+        /*=========================
+FILTER
+=========================*/
+
+        .filter-card {
+
+            background: #fff;
+            padding: 25px;
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+
+            position: sticky;
+            top: 30px;
+
+        }
+
+        .filter-title {
+
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 25px;
+
+        }
+
+        .filter-card h6 {
+
+            margin-top: 20px;
+            margin-bottom: 12px;
+
+            font-weight: 600;
+
+        }
+
+        .form-check {
+
+            margin-bottom: 10px;
+
+        }
+
+        .form-range {
+
+            margin-top: 10px;
+
+        }
+
+        /*=========================
+TOOLBAR
+=========================*/
+
+        .toolbar {
+
+            background: #fff;
+            padding: 18px 25px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 30px;
+
+        }
+
+        .toolbar .left {
+
+            font-weight: 600;
+
+        }
+
+        .toolbar .right {
+
+            display: flex;
+            gap: 15px;
+            align-items: center;
+
+        }
+
+        .view-btn {
+
+            height: 45px;
+            width: 45px;
+            border-radius: 10px;
+            border: none;
+            background: #f1f1f1;
+
+        }
+
+        .view-btn.active {
+
+            background: var(--primary);
+            color: #fff;
+
+        }
+
+        /*=========================
+SECTION
+=========================*/
+
+        .section {
+
+            padding: 70px 0;
+
+        }
+
+        /*=========================
+EMPTY GRID
+=========================*/
+
+        .car-grid-placeholder {
+
+            background: #fff;
+            border-radius: 20px;
+            padding: 80px;
+            text-align: center;
+            box-shadow: var(--shadow);
+
+        }
+
+        .car-grid-placeholder i {
+
+            font-size: 60px;
+            color: var(--primary);
+
+            margin-bottom: 20px;
+
+        }
+
+        .car-grid-placeholder h3 {
+
+            font-weight: 700;
+
+        }
+
+        .car-grid-placeholder p {
+
+            color: #666;
+
+        }
+
+        /*=========================
+RESPONSIVE
+=========================*/
+
+        @media(max-width:991px) {
+
+            .toolbar {
+
+                flex-direction: column;
+                gap: 20px;
+
+            }
+
+            .page-header h1 {
+
+                font-size: 38px;
+
+            }
+
+        }
+
+
+        .view-car {
+            padding: 12px 25px;
+            background: #FF5722;
+            color: #fff;
+            border-radius: 40px;
+
+        }
+
+        .call-icons i {
+            height: 45px;
+            width: 45px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f5f5f5;
+            color: var(--primary);
+        }
+        .card{
+    transition:.4s ease;
+    cursor:pointer;
+    overflow:hidden;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 25px 60px rgba(0,0,0,.18);
+}
+
+.card:hover img{
+    transform:scale(1.08);
+}
+
+.card img{
+    transition:.5s;
+}
+
+.position-relative::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to top,
+        rgba(0,0,0,.45),
+        transparent 60%);
+}
+
+.view-car,
+.btn-call{
+
+transition:.35s;
+
+}
+
+.view-car:hover,
+.btn-call:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0 15px 35px rgba(255,87,34,.35);
+
+}
+
+.badge{
+
+padding:10px 18px;
+
+font-size:13px;
+
+border-radius:50px;
+
+backdrop-filter:blur(10px);
+
+}
+
+.filter-card{
+
+transition:.35s;
+
+}
+
+.filter-card:hover{
+
+transform:translateY(-6px);
+
+}
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container">
+
+            <nav class="navbar navbar-expand-lg">
+
+                <a class="navbar-brand" href="#">
+                    SAHARA <span>CARS</span>
+                </a>
+
+                <button class="navbar-toggler bg-white" data-bs-toggle="collapse" data-bs-target="#menu">
+
+                    <span class="navbar-toggler-icon"></span>
+
+                </button>
+
+                <div class="collapse navbar-collapse" id="menu">
+
+                    <ul class="navbar-nav mx-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" href="buy-cars.html">
+                                Buy Cars
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="sell-car.html">
+                                Sell Car
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="finance.html">
+                                Finance
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html" data-bs-toggle="modal" data-bs-target="#contactModal">
+                                Contact
+                            </a>
+                        </li>
+
+                    </ul>
+
+                    <a href="#" class="btn-call" data-bs-toggle="modal" data-bs-target="#contactModal">
+
+                        Call Now
+
+                    </a>
+
+                </div>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <!-- HERO -->
+
+    <section class="page-header">
+
+        <div class="container" data-aos="fade-right">
+
+            <h1>Buy Premium Cars</h1>
+
+            <nav>
+
+                <ol class="breadcrumb">
+
+                    <li class="breadcrumb-item">
+
+                        <a href="index.html">
+
+                            Home
+
+                        </a>
+
+                    </li>
+
+                    <li class="breadcrumb-item active">
+
+                        Buy Cars
+
+                    </li>
+
+                </ol>
+
+            </nav>
+
+        </div>
+
+    </section>
+
+    <!-- CONTENT -->
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="row">
+
+                <!-- FILTER -->
+
+                <div class="col-lg-3" data-aos="fade-right">
+
+                    <div class="filter-card">
+
+                        <div class="filter-title">
+
+                            Filter Cars
+
+                        </div>
+
+                        <h6>Search</h6>
+
+                        <input type="text" class="form-control" placeholder="Search Car">
+
+                        <h6>Brand</h6>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox">
+                            <label>BMW</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox">
+                            <label>Audi</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox">
+                            <label>Mercedes</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox">
+                            <label>Volvo</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox">
+                            <label>Jaguar</label>
+                        </div>
+
+                        <h6>Fuel Type</h6>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox">
+                            <label>Petrol</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox">
+                            <label>Diesel</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox">
+                            <label>Electric</label>
+                        </div>
+
+                        <h6>Transmission</h6>
+
+                        <select class="form-select">
+
+                            <option>All</option>
+
+                            <option>Automatic</option>
+
+                            <option>Manual</option>
+
+                        </select>
+
+                        <h6>Budget</h6>
+
+                        <input type="range" class="form-range" min="10" max="100">
+
+                        <p class="text-muted">
+
+                            Up to ₹1 Crore
+
+                        </p>
+
+                        <button class="btn btn-danger w-100">
+
+                            Apply Filters
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- RIGHT -->
+
+                <div class="col-lg-9">
+
+                    <div class="toolbar" data-aos="fade-up">
+
+                        <div class="left">
+
+                            Showing
+                            <strong>120 Cars</strong>
+
+                        </div>
+
+                        <div class="right">
+
+                            <select class="form-select">
+
+                                <option>Newest First</option>
+
+                                <option>Price Low to High</option>
+
+                                <option>Price High to Low</option>
+
+                                <option>Latest Model</option>
+
+                            </select>
+
+                            <button class="view-btn active">
+
+                                <i class="fa-solid fa-table-cells"></i>
+
+                            </button>
+
+                            <button class="view-btn">
+
+                                <i class="fa-solid fa-list"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <!-- GRID START -->
+
+                    <!-- <div class="car-grid-placeholder"> -->
+
+                    <!-- =========================
+CAR GRID
+========================= -->
+
+                    <div class="row g-4">
+
+                        <!-- Car 1 -->
+                        <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="card shadow-sm border-0 rounded-4 overflow-hidden h-100">
+
+                                <div class="position-relative">
+
+                                    <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=900"
+                                        class="card-img-top" style="height:220px;object-fit:cover;">
+
+                                    <span class="badge bg-danger position-absolute top-0 start-0 m-3">
+                                        Featured
+                                    </span>
+
+                                    <button class="btn btn-light rounded-circle position-absolute top-0 end-0 m-3">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+
+                                </div>
+
+                                <div class="card-body">
+
+                                    <h5 class="fw-bold">
+                                        BMW 530i M Sport
+                                    </h5>
+
+                                    <p class="text-muted mb-3">
+                                        2023 • Petrol • Automatic
+                                    </p>
+
+                                    <div class="row text-center small mb-3">
+
+                                        <div class="col">
+                                            <i class="fa-solid fa-road text-danger"></i><br>
+                                            18,000 KM
+                                        </div>
+
+                                        <div class="col">
+                                            <i class="fa-solid fa-gas-pump text-danger"></i><br>
+                                            Petrol
+                                        </div>
+
+                                        <div class="col">
+                                            <i class="fa-solid fa-gear text-danger"></i><br>
+                                            Auto
+                                        </div>
+
+                                    </div>
+
+                                    <h4 class="fw-bold text-danger">
+                                        ₹54.90 Lakh
+                                    </h4>
+
+                                    <small class="text-muted">
+                                        EMI from ₹82,500/month
+                                    </small>
+
+                                </div>
+                                <div class="card-footer bg-white border-0 pb-4">
+
+                                    <div class="d-flex gap-2">
+
+                                        <a href="#" class="btn btn-danger w-100 view-car" data-bs-toggle="modal"
+                                            data-bs-target="#contactModal" data-aos="fade-right">
+                                            View Details
+                                        </a>
+
+                                        <a target="_blank" href="https://wa.me/919876543210" class="call-icons" data-aos="fade-left">
+                                            <i class="fab fa-whatsapp"></i>
+                                        </a>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Car 2 -->
+                        <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="card shadow-sm border-0 rounded-4 overflow-hidden h-100">
+
+                                <div class="position-relative">
+
+                                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900"
+                                        class="card-img-top" style="height:220px;object-fit:cover;">
+
+                                    <span class="badge bg-dark position-absolute top-0 start-0 m-3">
+                                        New
+                                    </span>
+
+                                </div>
+
+                                <div class="card-body">
+
+                                    <h5 class="fw-bold">
+                                        Mercedes GLC 300
+                                    </h5>
+
+                                    <p class="text-muted">
+                                        2022 • Diesel • Automatic
+                                    </p>
+
+                                    <div class="row text-center small mb-3">
+
+                                        <div class="col">34K KM</div>
+
+                                        <div class="col">Diesel</div>
+
+                                        <div class="col">Auto</div>
+
+                                    </div>
+
+                                    <h4 class="text-danger fw-bold">
+                                        ₹63.50 Lakh
+                                    </h4>
+
+                                    <small>
+                                        EMI ₹95,400/month
+                                    </small>
+
+                                </div>
+
+                                <div class="card-footer bg-white border-0 pb-4">
+
+                                    <div class="d-flex gap-2">
+
+                                        <button class="btn btn-danger w-100 view-car" data-bs-toggle="modal"
+                                            data-bs-target="#contactModal" data-aos="fade-right">
+                                            View Details
+                                        </button>
+
+                                        <a target="_blank" href="https://wa.me/919876543210" class="call-icons" data-aos="fade-left">
+                                            <i class="fab fa-whatsapp"></i>
+                                        </a>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Car 3 -->
+
+                        <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+
+                            <div class="card shadow-sm border-0 rounded-4 overflow-hidden h-100">
+
+                                <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=900"
+                                    class="card-img-top" style="height:220px;object-fit:cover;">
+
+                                <div class="card-body">
+
+                                    <h5 class="fw-bold">
+                                        Audi A6 Premium
+                                    </h5>
+
+                                    <p class="text-muted">
+                                        2024 • Petrol • Automatic
+                                    </p>
+
+                                    <div class="row text-center small mb-3">
+
+                                        <div class="col">9K KM</div>
+
+                                        <div class="col">Petrol</div>
+
+                                        <div class="col">Auto</div>
+
+                                    </div>
+
+                                    <h4 class="fw-bold text-danger">
+                                        ₹72.90 Lakh
+                                    </h4>
+
+                                    <small>
+                                        EMI ₹1.08L/month
+                                    </small>
+
+                                </div>
+
+                                <div class="card-footer bg-white border-0 pb-4">
+
+                                    <div class="d-flex gap-2">
+
+                                        <button class="btn btn-danger w-100 view-car" data-bs-toggle="modal"
+                                            data-bs-target="#contactModal" data-aos="fade-right">
+                                            View Details
+                                        </button>
+
+                                        <a target="_blank" href="https://wa.me/919876543210" class="call-icons" data-aos="fade-left">
+                                            <i class="fab fa-whatsapp"></i>
+                                        </a>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Car 4 -->
+
+                        <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+
+                            <div class="card shadow-sm border-0 rounded-4 overflow-hidden h-100">
+
+                                <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=900"
+                                    class="card-img-top" style="height:220px;object-fit:cover;">
+
+                                <div class="card-body">
+
+                                    <h5 class="fw-bold">
+                                        Volvo XC60
+                                    </h5>
+
+                                    <p class="text-muted">
+                                        2023 • Diesel • Automatic
+                                    </p>
+
+                                    <h4 class="fw-bold text-danger">
+                                        ₹58.00 Lakh
+                                    </h4>
+
+                                    <small>
+                                        EMI ₹87,000/month
+                                    </small>
+
+                                </div>
+
+
+                                <div class="card-footer bg-white border-0 pb-4">
+
+                                    <div class="d-flex gap-2">
+
+                                        <a href="#" class="btn btn-danger w-100 view-car" data-bs-toggle="modal"
+                                            data-bs-target="#contactModal" data-aos="fade-right">
+                                            View Details
+                                        </a>
+
+                                        <a target="_blank" href="https://wa.me/919876543210" class="call-icons" data-aos="fade-left">
+                                            <i class="fab fa-whatsapp"></i>
+                                        </a>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Car 5 -->
+
+                        <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="500">
+
+                            <div class="card shadow-sm border-0 rounded-4 overflow-hidden h-100">
+
+                                <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=900"
+                                    class="card-img-top" style="height:220px;object-fit:cover;">
+
+                                <div class="card-body">
+
+                                    <h5 class="fw-bold">
+                                        Jaguar XF
+                                    </h5>
+
+                                    <p class="text-muted">
+                                        2022 • Petrol
+                                    </p>
+
+                                    <h4 class="fw-bold text-danger">
+                                        ₹49.90 Lakh
+                                    </h4>
+
+                                    <small>
+                                        EMI ₹75,000/month
+                                    </small>
+
+                                </div>
+
+
+                                <div class="card-footer bg-white border-0 pb-4">
+
+                                    <div class="d-flex gap-2">
+
+                                        <a href="#" class="btn btn-danger w-100 view-car" data-bs-toggle="modal"
+                                            data-bs-target="#contactModal" data-aos="fade-right">
+                                            View Details
+                                        </a>
+
+                                        <a target="_blank" href="https://wa.me/919876543210" class="call-icons" data-aos="fade-left">
+                                            <i class="fab fa-whatsapp"></i>
+                                        </a>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Car 6 -->
+
+                        <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="600">
+
+                            <div class="card shadow-sm border-0 rounded-4 overflow-hidden h-100">
+
+                                <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=900"
+                                    class="card-img-top" style="height:220px;object-fit:cover;">
+
+                                <div class="card-body">
+
+                                    <h5 class="fw-bold">
+                                        Lexus ES300h
+                                    </h5>
+
+                                    <p class="text-muted">
+                                        Hybrid • 2024
+                                    </p>
+
+                                    <h4 class="fw-bold text-danger">
+                                        ₹67.25 Lakh
+                                    </h4>
+
+                                    <small>
+                                        EMI ₹99,000/month
+                                    </small>
+
+                                </div>
+
+
+                                <div class="card-footer bg-white border-0 pb-4">
+
+                                    <div class="d-flex gap-2">
+
+                                        <a href="#" class="btn btn-danger w-100 view-car" data-bs-toggle="modal"
+                                            data-bs-target="#contactModal" data-aos="fade-right">
+                                            View Details
+                                        </a>
+
+                                        <a target="_blank" href="https://wa.me/919876543210" class="call-icons" data-aos="fade-left">
+                                            <i class="fab fa-whatsapp"></i>
+                                        </a>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- GRID END -->
+
+            </div>
+
+        </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================
+PAGINATION
+========================== -->
+
+    <section class="mt-5" data-aos="fade-up">
+
+        <nav>
+
+            <ul class="pagination justify-content-center">
+
+                <li class="page-item disabled">
+                    <a class="page-link">Previous</a>
+                </li>
+
+                <li class="page-item active">
+                    <a class="page-link bg-danger border-danger">1</a>
+                </li>
+
+                <li class="page-item">
+                    <a class="page-link">2</a>
+                </li>
+
+                <li class="page-item">
+                    <a class="page-link">3</a>
+                </li>
+
+                <li class="page-item">
+                    <a class="page-link">4</a>
+                </li>
+
+                <li class="page-item">
+                    <a class="page-link">Next</a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </section>
+
+
+
+
+
+    <!-- ==========================
+FINANCE BANNER
+========================== -->
+
+    <section class="my-5">
+
+        <div class="card border-0 rounded-4 overflow-hidden">
+
+            <div class="row g-0 align-items-center">
+
+                <div class="col-lg-6 p-5 bg-dark text-white" data-aos="fade-right">
+
+                    <h6 class="text-danger fw-bold">
+
+                        EASY FINANCE
+
+                    </h6>
+
+                    <h2 class="fw-bold mb-4">
+
+                        Own Your Dream Car Today
+
+                    </h2>
+
+                    <p>
+
+                        Get attractive interest rates, instant approvals,
+                        zero hidden charges and flexible EMI options.
+
+                    </p>
+
+                    <a href="#" class="btn btn-danger btn-lg mt-3">
+
+                        Apply Now
+
+                    </a>
+
+                </div>
+
+                <div class="col-lg-6" data-aos="fade-left">
+
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200" class="img-fluid"
+                        style="height:100%;object-fit:cover;">
+
+                </div>
+
+            </div>
+
+            </div>
+
+    </section>
+
+
+
+
+
+    <!-- ==========================
+FEATURED BRANDS
+========================== -->
+
+    <section class="my-5">
+
+        <h2 class="fw-bold text-center mb-5">
+
+            Popular Brands
+
+        </h2>
+
+        <div class="row text-center g-4">
+
+            <div class="col" data-aos="fade-right">
+
+                <div class="card border-0 shadow-sm py-4">
+
+                    <h4>BMW</h4>
+
+                </div>
+
+            </div>
+
+            <div class="col" data-aos="fade-up" data-aos="fade-up">
+
+                <div class="card border-0 shadow-sm py-4">
+
+                    <h4>AUDI</h4>
+
+                </div>
+
+            </div>
+
+            <div class="col" data-aos="fade-down">
+
+                <div class="card border-0 shadow-sm py-4">
+
+                    <h4>MERCEDES</h4>
+
+                </div>
+
+            </div>
+
+            <div class="col" data-aos="fade-up">
+
+                <div class="card border-0 shadow-sm py-4">
+
+                    <h4>VOLVO</h4>
+
+                </div>
+
+            </div>
+
+            <div class="col" data-aos="fade-left">
+
+                <div class="card border-0 shadow-sm py-4">
+
+                    <h4>LEXUS</h4>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- ==========================
+NEWSLETTER
+========================== -->
+
+    <section class="bg-danger rounded-4 p-5 my-5 text-white">
+
+        <div class="row align-items-center" data-aos="fade-up">
+
+            <div class="col-lg-6" data-aos="fade-right">
+
+                <h2>
+
+                    Never Miss New Arrivals
+
+                </h2>
+
+                <p>
+
+                    Subscribe to receive notifications for premium
+                    luxury vehicles.
+
+                </p>
+
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-lef">
+
+                <div class="input-group">
+
+                    <input type="email" class="form-control form-control-lg" placeholder="Enter Email">
+
+                    <button class="btn btn-dark">
+
+                        Subscribe
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    </div>
+
+    </section>
+
+    <div class="modal fade" id="contactModal" tabindex="-1">
+
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+
+            <div class="modal-content border-0 rounded-4 overflow-hidden">
+
+                <div class="row g-0">
+
+                    <!-- Left -->
+
+                    <div class="col-lg-5 text-white p-5" style="background:linear-gradient(135deg,#111,#ff4d00);">
+
+                        <h2 class="fw-bold mb-3">
+                            Sahara Cars
+                        </h2>
+
+                        <p class="mb-4">
+
+                            Looking for your dream car?
+
+                            Our experts will contact you within
+                            30 minutes.
+
+                        </p>
+
+                        <div class="mb-4">
+
+                            <h6>
+
+                                <i class="fa-solid fa-phone me-2"></i>
+
+                                +91 98765 43210
+
+                            </h6>
+
+                            <h6>
+
+                                <i class="fab fa-whatsapp me-2"></i>
+
+                                WhatsApp Support
+
+                            </h6>
+
+                            <h6>
+
+                                <i class="fa-solid fa-envelope me-2"></i>
+
+                                info@saharacars.com
+
+                            </h6>
+
+                            <h6>
+
+                                <i class="fa-solid fa-location-dot me-2"></i>
+
+                                Bangalore, Karnataka
+
+                            </h6>
+
+                        </div>
+
+                        <div class="d-flex gap-3">
+
+                            <a href="#" class="btn btn-light rounded-pill">
+
+                                <i class="fab fa-whatsapp"></i>
+
+                            </a>
+
+                            <a href="#" class="btn btn-light rounded-pill">
+
+                                <i class="fa-solid fa-phone"></i>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Right -->
+
+                    <div class="col-lg-7">
+
+                        <div class="p-5">
+
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+
+                                <h3 class="fw-bold">
+
+                                    Contact Us
+
+                                </h3>
+
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+
+                            </div>
+
+                            <form>
+
+                                <div class="mb-3">
+
+                                    <label class="form-label">
+
+                                        Full Name
+
+                                    </label>
+
+                                    <input type="text" class="form-control form-control-lg"
+                                        placeholder="Enter your name">
+
+                                </div>
+
+                                <div class="mb-3">
+
+                                    <label class="form-label">
+
+                                        Mobile Number
+
+                                    </label>
+
+                                    <input type="tel" class="form-control form-control-lg" placeholder="+91">
+
+                                </div>
+
+                                <div class="mb-3">
+
+                                    <label class="form-label">
+
+                                        Email Address
+
+                                    </label>
+
+                                    <input type="email" class="form-control form-control-lg"
+                                        placeholder="example@gmail.com">
+
+                                </div>
+
+                                <div class="mb-3">
+
+                                    <label class="form-label">
+
+                                        Interested Car
+
+                                    </label>
+
+                                    <select class="form-select form-select-lg">
+
+                                        <option>Select Car</option>
+
+                                        <option>BMW X5</option>
+
+                                        <option>BMW 5 Series</option>
+
+                                        <option>Audi A6</option>
+
+                                        <option>Audi Q7</option>
+
+                                        <option>Mercedes GLC</option>
+
+                                        <option>Mercedes C-Class</option>
+
+                                        <option>Jaguar XF</option>
+
+                                    </select>
+
+                                </div>
+
+                                <div class="mb-4">
+
+                                    <label class="form-label">
+
+                                        Message
+
+                                    </label>
+
+                                    <textarea rows="4" class="form-control"
+                                        placeholder="Tell us your requirement"></textarea>
+
+                                </div>
+
+                                <div class="d-grid">
+
+                                    <button class="btn btn-danger btn-lg rounded-pill">
+
+                                        Submit Enquiry
+
+                                    </button>
+
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==========================
+FOOTER
+========================== -->
+
+    <footer class="bg-dark text-white pt-5" data-aos="fade-up">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-lg-4">
+
+                    <h3 class="fw-bold">
+
+                        SAHARA
+                        <span class="text-danger">CARS</span>
+
+                    </h3>
+
+                    <p class="mt-3">
+
+                        India's trusted luxury pre-owned
+                        car marketplace.
+
+                    </p>
+
+                    <div class="d-flex gap-3 mt-4">
+
+                        <i class="fab fa-facebook fa-lg"></i>
+
+                        <i class="fab fa-instagram fa-lg"></i>
+
+                        <i class="fab fa-youtube fa-lg"></i>
+
+                        <i class="fab fa-linkedin fa-lg"></i>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-2">
+
+                    <h5>
+
+                        Company
+
+                    </h5>
+
+                    <ul class="list-unstyled">
+
+                        <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+
+                        <li><a href="buy-cars.html" class="text-white text-decoration-none">Buy Cars</a></li>
+
+                        <li><a href="sell-car.html" class="text-white text-decoration-none">Sell Cars</a></li>
+
+                        <li><a href="finance.html" class="text-white text-decoration-none">Finance</a></li>
+
+                    </ul>
+
+                </div>
+
+                <div class="col-lg-3">
+
+                    <h5>
+
+                        Brands
+
+                    </h5>
+
+                    <ul class="list-unstyled">
+
+                        <li>BMW</li>
+
+                        <li>Audi</li>
+
+                        <li>Mercedes</li>
+
+                        <li>Jaguar</li>
+
+                        <li>Volvo</li>
+
+                    </ul>
+
+                </div>
+
+                <div class="col-lg-3">
+
+                    <h5>
+
+                        Contact
+
+                    </h5>
+
+                    <p>
+
+                        📍 Bangalore
+
+                    </p>
+
+                    <p>
+
+                        📞 +91 9876543210
+
+                    </p>
+
+                    <p>
+
+                        ✉ info@saharacars.com
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <hr>
+
+            <div class="text-center py-3">
+
+                © 2026 Sahara Cars. All Rights Reserved. Designed by <a href="https://www.thiven.com"
+                    target="_blank">THIVEN</a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+
+
+    <!-- Floating WhatsApp -->
+
+    <a href="#" class="btn btn-success rounded-circle shadow position-fixed"
+        style="width:60px;height:60px;right:20px;bottom:20px;display:flex;align-items:center;justify-content:center;z-index:9999;">
+
+        <i class="fab fa-whatsapp fa-xl"></i>
+
+    </a>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+
+        // Wishlist
+
+        document.querySelectorAll(".fa-heart").forEach(icon => {
+
+            icon.addEventListener("click", function () {
+
+                this.classList.toggle("far");
+
+                this.classList.toggle("fas");
+
+                this.classList.toggle("text-danger");
+
+            });
+
+        });
+
+
+
+        // Grid/List Toggle
+
+        const gridBtn = document.querySelectorAll(".view-btn")[0];
+
+        const listBtn = document.querySelectorAll(".view-btn")[1];
+
+        gridBtn.onclick = function () {
+
+            gridBtn.classList.add("active");
+
+            listBtn.classList.remove("active");
+
+        };
+
+        listBtn.onclick = function () {
+
+            listBtn.classList.add("active");
+
+            gridBtn.classList.remove("active");
+
+            // alert("List View Layout can be added here.");
+
+        };
+
+
+
+        // Filter Button
+
+        document.querySelector(".btn-danger.w-100").onclick = function () {
+
+            // alert("Connect this with Laravel or API filtering.");
+
+        };
+
+    </script>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+        AOS.init({
+            duration:800,
+            once:true
+        });
+    </script>
+
+</body>
+
+</html>

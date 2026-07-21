@@ -1,0 +1,1667 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Gallery | Sahara Cars</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #f8f9fb;
+            overflow-x: hidden;
+        }
+
+        :root {
+
+            --primary: #ff4d00;
+            --dark: #111;
+            --shadow: 0 15px 45px rgba(0, 0, 0, .15);
+
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        header {
+
+            position: absolute;
+            width: 100%;
+            z-index: 999;
+
+        }
+
+        .navbar {
+
+            padding: 18px 0;
+            transition: .4s;
+
+        }
+
+        .navbar-brand {
+
+            font-size: 34px;
+            font-weight: 800;
+            color: #fff;
+
+        }
+
+        .navbar-brand span {
+
+            color: var(--primary);
+
+        }
+
+        .nav-link {
+
+            color: #fff !important;
+            margin: 0 14px;
+
+        }
+
+        .btn-main {
+
+            background: var(--primary);
+            padding: 14px 32px;
+            border-radius: 50px;
+            color: #fff;
+
+        }
+
+        .hero {
+
+            height: 75vh;
+
+            display: flex;
+            align-items: center;
+
+            background:
+
+                linear-gradient(rgba(0, 0, 0, .65), rgba(0, 0, 0, .65)),
+
+                url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=2200");
+
+            background-size: cover;
+            background-position: center;
+
+            animation: heroZoom 15s infinite alternate;
+
+        }
+
+        @keyframes heroZoom {
+
+            from {
+
+                background-size: 100%;
+
+            }
+
+            to {
+
+                background-size: 110%;
+
+            }
+
+        }
+
+        .hero h1 {
+
+            font-size: 64px;
+            font-weight: 800;
+            color: #fff;
+
+        }
+
+        .hero p {
+
+            color: #ddd;
+            font-size: 18px;
+
+        }
+
+        .section {
+
+            padding: 90px 0;
+
+        }
+
+        .filter-btn {
+
+            padding: 12px 26px;
+
+            border: none;
+
+            border-radius: 40px;
+
+            background: #fff;
+
+            box-shadow: var(--shadow);
+
+            margin: 6px;
+
+            transition: .35s;
+
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+
+            background: var(--primary);
+
+            color: #fff;
+
+        }
+
+        .gallery-card {
+
+            overflow: hidden;
+
+            border-radius: 20px;
+
+            position: relative;
+
+            box-shadow: var(--shadow);
+
+            cursor: pointer;
+
+        }
+
+        .gallery-card img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: .5s;
+
+        }
+
+        .gallery-card:hover img {
+
+            transform: scale(1.08);
+
+        }
+
+        .overlay {
+
+            position: absolute;
+
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            padding: 25px;
+
+            background: linear-gradient(transparent, rgba(0, 0, 0, .85));
+
+            color: #fff;
+
+            opacity: 0;
+
+            transition: .35s;
+
+        }
+
+        .gallery-card:hover .overlay {
+
+            opacity: 1;
+
+        }
+
+        .overlay h5 {
+
+            margin-bottom: 8px;
+
+        }
+
+        .overlay i {
+
+            background: #fff;
+
+            color: #111;
+
+            width: 45px;
+
+            height: 45px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+        }
+
+        .masonry {
+
+            column-count: 3;
+
+            column-gap: 22px;
+
+        }
+
+        .item {
+
+            break-inside: avoid;
+
+            margin-bottom: 22px;
+
+        }
+
+        @media(max-width:992px) {
+
+            .masonry {
+
+                column-count: 2;
+
+            }
+
+            .hero h1 {
+
+                font-size: 44px;
+
+            }
+
+        }
+
+        @media(max-width:600px) {
+
+            .masonry {
+
+                column-count: 1;
+
+            }
+
+            .hero {
+
+                height: 60vh;
+
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container">
+
+            <nav class="navbar navbar-expand-lg">
+
+                <a class="navbar-brand" href="index.html">
+
+                    SAHARA <span>CARS</span>
+
+                </a>
+
+                <button class="navbar-toggler bg-white" data-bs-toggle="collapse" data-bs-target="#menu">
+
+                    <span class="navbar-toggler-icon"></span>
+
+                </button>
+
+                <div class="collapse navbar-collapse" id="menu">
+
+                    <ul class="navbar-nav mx-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="buy-cars.html">Buy Cars</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="sell-car.html">Sell Car</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="finance.html">Finance</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" href="gallery.html">Gallery</a>
+                        </li>
+
+                    </ul>
+
+                    <a href="#" class="btn-main" data-bs-toggle="modal"
+                                data-bs-target="#contactModal">
+
+                        Contact
+
+                    </a>
+
+                </div>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <section class="hero">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-lg-7" data-aos="fade-right">
+
+                    <h1>
+
+                        Luxury Car Gallery
+
+                    </h1>
+
+                    <p>
+
+                        Explore our premium collection of luxury vehicles,
+                        showroom moments and customer deliveries.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="text-center mb-5">
+
+                <h2 class="fw-bold">
+
+                    Explore Gallery
+
+                </h2>
+
+                <p class="text-muted">
+
+                    Luxury. Performance. Elegance.
+
+                </p>
+
+            </div>
+
+            <div class="text-center mb-5">
+
+                <button class="filter-btn active">
+
+                    All
+
+                </button>
+
+                <button class="filter-btn">
+
+                    BMW
+
+                </button>
+
+                <button class="filter-btn">
+
+                    Audi
+
+                </button>
+
+                <button class="filter-btn">
+
+                    Mercedes
+
+                </button>
+
+                <button class="filter-btn">
+
+                    SUV
+
+                </button>
+
+                <button class="filter-btn">
+
+                    Showroom
+
+                </button>
+
+            </div>
+
+            <div class="masonry">
+                <!-- BMW -->
+
+                <div class="item" data-aos="zoom-in">
+
+                    <div class="gallery-card">
+
+                        <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=900">
+
+                        <div class="overlay">
+
+                            <div class="d-flex justify-content-between align-items-center">
+
+                                <div>
+
+                                    <h5>BMW M5</h5>
+
+                                    <p>Luxury Sedan</p>
+
+                                </div>
+
+                                <i class="fa-solid fa-expand"></i>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Audi -->
+
+                <div class="item" data-aos="zoom-in" data-aos-delay="100">
+
+                    <div class="gallery-card">
+
+                        <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=900">
+
+                        <div class="overlay">
+
+                            <div class="d-flex justify-content-between">
+
+                                <div>
+
+                                    <h5>Audi RS7</h5>
+
+                                    <p>Performance Coupe</p>
+
+                                </div>
+
+                                <i class="fa-solid fa-camera"></i>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Mercedes -->
+
+                <div class="item" data-aos="zoom-in" data-aos-delay="200">
+
+                    <div class="gallery-card">
+
+                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900">
+
+                        <div class="overlay">
+
+                            <div class="d-flex justify-content-between">
+
+                                <div>
+
+                                    <h5>Mercedes AMG</h5>
+
+                                    <p>Luxury Collection</p>
+
+                                </div>
+
+                                <i class="fa-solid fa-expand"></i>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Jaguar -->
+
+                <div class="item" data-aos="zoom-in">
+
+                    <div class="gallery-card">
+
+                        <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=900">
+
+                        <div class="overlay">
+
+                            <div class="d-flex justify-content-between">
+
+                                <div>
+
+                                    <h5>Jaguar XF</h5>
+
+                                    <p>Premium Sedan</p>
+
+                                </div>
+
+                                <i class="fa-solid fa-heart"></i>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- BMW SUV -->
+
+                <div class="item" data-aos="zoom-in" data-aos-delay="100">
+
+                    <div class="gallery-card">
+
+                        <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=900">
+
+                        <div class="overlay">
+
+                            <div class="d-flex justify-content-between">
+
+                                <div>
+
+                                    <h5>BMW X7</h5>
+
+                                    <p>Luxury SUV</p>
+
+                                </div>
+
+                                <i class="fa-solid fa-expand"></i>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Lexus -->
+
+                <div class="item" data-aos="zoom-in" data-aos-delay="200">
+
+                    <div class="gallery-card">
+
+                        <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=900">
+
+                        <div class="overlay">
+
+                            <div class="d-flex justify-content-between">
+
+                                <div>
+
+                                    <h5>Lexus RX</h5>
+
+                                    <p>Hybrid Luxury</p>
+
+                                </div>
+
+                                <i class="fa-solid fa-expand"></i>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Volvo -->
+
+                <div class="item" data-aos="zoom-in">
+
+                    <div class="gallery-card">
+
+                        <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=900">
+
+                        <div class="overlay">
+
+                            <div class="d-flex justify-content-between">
+
+                                <div>
+
+                                    <h5>Volvo XC90</h5>
+
+                                    <p>Luxury SUV</p>
+
+                                </div>
+
+                                <i class="fa-solid fa-expand"></i>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Porsche -->
+
+                <div class="item" data-aos="zoom-in" data-aos-delay="100">
+
+                    <div class="gallery-card">
+
+                        <img src="https://images.unsplash.com/photo-1502161254066-6c74afbf07aa?w=900">
+
+                        <div class="overlay">
+
+                            <div class="d-flex justify-content-between">
+
+                                <div>
+
+                                    <h5>Porsche 911</h5>
+
+                                    <p>Sports Car</p>
+
+                                </div>
+
+                                <i class="fa-solid fa-expand"></i>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Showroom -->
+
+                <div class="item" data-aos="zoom-in" data-aos-delay="200">
+
+                    <div class="gallery-card">
+
+                        <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=900">
+
+                        <div class="overlay">
+
+                            <div class="d-flex justify-content-between">
+
+                                <div>
+
+                                    <h5>Premium Showroom</h5>
+
+                                    <p>Sahara Cars</p>
+
+                                </div>
+
+                                <i class="fa-solid fa-play"></i>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Delivery -->
+
+                <div class="item" data-aos="zoom-in">
+
+                    <div class="gallery-card">
+
+                        <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=900">
+
+                        <div class="overlay">
+
+                            <div class="d-flex justify-content-between">
+
+                                <div>
+
+                                    <h5>Customer Delivery</h5>
+
+                                    <p>Happy Moments</p>
+
+                                </div>
+
+                                <i class="fa-solid fa-camera"></i>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+VIDEO GALLERY
+========================= -->
+
+    <section class="section bg-dark">
+
+        <div class="container">
+
+            <div class="text-center mb-5 text-white">
+
+                <h2>
+
+                    Video Gallery
+
+                </h2>
+
+                <p>
+
+                    Watch our premium collection in action.
+
+                </p>
+
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-lg-4" data-aos="fade-up">
+
+                    <div class="gallery-card">
+
+                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900">
+
+                        <div class="overlay">
+
+                            <div class="text-center">
+
+                                <div
+                                    style="width:70px;height:70px;background:#ff4d00;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;">
+
+                                    <i class="fa-solid fa-play text-white fa-xl"></i>
+
+                                </div>
+
+                                <h5 class="mt-4">
+
+                                    BMW Walkaround
+
+                                </h5>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="150">
+
+                    <div class="gallery-card">
+
+                        <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=900">
+
+                        <div class="overlay">
+
+                            <div class="text-center">
+
+                                <div
+                                    style="width:70px;height:70px;background:#ff4d00;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;">
+
+                                    <i class="fa-solid fa-play text-white fa-xl"></i>
+
+                                </div>
+
+                                <h5 class="mt-4">
+
+                                    Audi RS Review
+
+                                </h5>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+
+                    <div class="gallery-card">
+
+                        <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=900">
+
+                        <div class="overlay">
+
+                            <div class="text-center">
+
+                                <div
+                                    style="width:70px;height:70px;background:#ff4d00;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;">
+
+                                    <i class="fa-solid fa-play text-white fa-xl"></i>
+
+                                </div>
+
+                                <h5 class="mt-4">
+
+                                    Showroom Tour
+
+                                </h5>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- ===================================
+FEATURED SHOWROOM
+=================================== -->
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="row align-items-center">
+
+                <div class="col-lg-6" data-aos="fade-right">
+
+                    <h6 class="text-danger fw-bold">
+
+                        PREMIUM EXPERIENCE
+
+                    </h6>
+
+                    <h2 class="fw-bold mb-4">
+
+                        Visit Our Luxury Showroom
+
+                    </h2>
+
+                    <p class="text-muted mb-4">
+
+                        Experience India's finest collection of premium
+                        luxury vehicles in an elegant showroom designed
+                        for automotive enthusiasts.
+
+                    </p>
+
+                    <div class="row">
+
+                        <div class="col-6 mb-3">
+
+                            ✔ Certified Cars
+
+                        </div>
+
+                        <div class="col-6 mb-3">
+
+                            ✔ Test Drive
+
+                        </div>
+
+                        <div class="col-6">
+
+                            ✔ Finance Support
+
+                        </div>
+
+                        <div class="col-6">
+
+                            ✔ Exchange
+
+                        </div>
+
+                    </div>
+
+                    <a href="#" class="btn btn-danger btn-lg mt-4">
+
+                        Book Showroom Visit
+
+                    </a>
+
+                </div>
+
+                <div class="col-lg-6" data-aos="fade-left">
+
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200"
+                        class="img-fluid rounded-4 shadow">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- ===================================
+CALL TO ACTION
+=================================== -->
+
+    <section style="
+background:#111;
+padding:90px 0;
+">
+
+        <div class="container">
+
+            <div class="row align-items-center">
+
+                <div class="col-lg-8 text-white">
+
+                    <h2 class="fw-bold">
+
+                        Looking For Your Dream Car?
+
+                    </h2>
+
+                    <p>
+
+                        Browse hundreds of certified luxury vehicles.
+
+                    </p>
+
+                </div>
+
+                <div class="col-lg-4 text-lg-end">
+
+                    <a href="buy-cars.html" class="btn btn-danger btn-lg px-5">
+
+                        Browse Cars
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- ===================================
+FOOTER
+=================================== -->
+
+    <footer style="
+background:#000;
+color:#fff;
+">
+
+        <div class="container py-5">
+
+            <div class="row">
+
+                <div class="col-lg-4">
+
+                    <h3>
+
+                        SAHARA
+                        <span class="text-danger">
+
+                            CARS
+
+                        </span>
+
+                    </h3>
+
+                    <p class="mt-4">
+
+                        Luxury automotive destination offering
+                        premium buying experiences.
+
+                    </p>
+
+                    <div class="d-flex gap-3 mt-4">
+
+                        <i class="fab fa-facebook fa-lg"></i>
+
+                        <i class="fab fa-instagram fa-lg"></i>
+
+                        <i class="fab fa-youtube fa-lg"></i>
+
+                        <i class="fab fa-linkedin fa-lg"></i>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-2">
+
+                    <h5>
+
+                        Quick Links
+
+                    </h5>
+
+                    <ul class="list-unstyled">
+
+                        <li>
+
+                            <a class="text-white text-decoration-none" href="index.html">
+
+                                Home
+
+                            </a>
+
+                        </li>
+
+                        <li>
+
+                            <a class="text-white text-decoration-none" href="buy-cars.html">
+
+                                Buy Cars
+
+                            </a>
+
+                        </li>
+
+                        <li>
+
+                            <a class="text-white text-decoration-none" href="gallery.html">
+
+                                Gallery
+
+                            </a>
+
+                        </li>
+
+                        <li>
+
+                            <a class="text-white text-decoration-none" href="contact.html">
+
+                                Contact
+
+                            </a>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="col-lg-3">
+
+                    <h5>
+
+                        Contact
+
+                    </h5>
+
+                    <p>
+
+                        📍 Bangalore
+
+                    </p>
+
+                    <p>
+
+                        📞 +91 9876543210
+
+                    </p>
+
+                    <p>
+
+                        ✉ info@saharacars.com
+
+                    </p>
+
+                </div>
+
+                <div class="col-lg-3">
+
+                    <h5>
+
+                        Business Hours
+
+                    </h5>
+
+                    <p>
+
+                        Mon - Sat
+
+                    </p>
+
+                    <p>
+
+                        09:00 AM - 08:00 PM
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <hr>
+
+            <div class="text-center">
+
+                © 2026 Sahara Cars. All Rights Reserved.
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <!-- Contact Modal -->
+
+    <div class="modal fade" id="contactModal" tabindex="-1">
+
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+
+            <div class="modal-content border-0 rounded-4 overflow-hidden">
+
+                <div class="row g-0">
+
+                    <!-- Left -->
+
+                    <div class="col-lg-5 text-white p-5" style="background:linear-gradient(135deg,#111,#ff4d00);">
+
+                        <h2 class="fw-bold mb-3">
+                            Sahara Cars
+                        </h2>
+
+                        <p class="mb-4">
+
+                            Looking for your dream car?
+
+                            Our experts will contact you within
+                            30 minutes.
+
+                        </p>
+
+                        <div class="mb-4">
+
+                            <h6>
+
+                                <a target="_blank" href="tel:919876543210">
+                                    <i class="fa-solid fa-phone me-2"></i>
+
+                                    +91 98765 43210
+                                </a>
+
+                            </h6>
+
+                            <h6>
+
+                                <i class="fab fa-whatsapp me-2"></i>
+
+                                WhatsApp Support
+
+                            </h6>
+
+                            <h6>
+
+                                <i class="fa-solid fa-envelope me-2"></i>
+
+                                info@saharacars.com
+
+                            </h6>
+
+                            <h6>
+
+                                <i class="fa-solid fa-location-dot me-2"></i>
+
+                                Bangalore, Karnataka
+
+                            </h6>
+
+                        </div>
+
+                        <div class="d-flex gap-3">
+
+                            <a href="https://wa.me/919876543210" class="btn btn-light rounded-pill">
+
+                                <i class="fab fa-whatsapp"></i>
+
+                            </a>
+
+                            <a class="btn btn-light rounded-pill" target="_blank" href="tel:919876543210">
+
+                                <i class="fa-solid fa-phone"></i>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Right -->
+
+                    <div class="col-lg-7" data-aos="fade-right">
+
+                        <div class="p-5">
+
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+
+                                <h3 class="fw-bold">
+
+                                    Contact Us
+
+                                </h3>
+
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+
+                            </div>
+
+                            <form>
+
+                                <div class="mb-3">
+
+                                    <label class="form-label">
+
+                                        Full Name
+
+                                    </label>
+
+                                    <input type="text" class="form-control form-control-lg"
+                                        placeholder="Enter your name">
+
+                                </div>
+
+                                <div class="mb-3">
+
+                                    <label class="form-label">
+
+                                        Mobile Number
+
+                                    </label>
+
+                                    <input type="tel" class="form-control form-control-lg" placeholder="+91">
+
+                                </div>
+
+                                <div class="mb-3">
+
+                                    <label class="form-label">
+
+                                        Email Address
+
+                                    </label>
+
+                                    <input type="email" class="form-control form-control-lg"
+                                        placeholder="example@gmail.com">
+
+                                </div>
+
+                                <div class="mb-3">
+
+                                    <label class="form-label">
+
+                                        Interested Car
+
+                                    </label>
+
+                                    <select class="form-select form-select-lg">
+
+                                        <option>Select Car</option>
+
+                                        <option>BMW X5</option>
+
+                                        <option>BMW 5 Series</option>
+
+                                        <option>Audi A6</option>
+
+                                        <option>Audi Q7</option>
+
+                                        <option>Mercedes GLC</option>
+
+                                        <option>Mercedes C-Class</option>
+
+                                        <option>Jaguar XF</option>
+
+                                    </select>
+
+                                </div>
+
+                                <div class="mb-4">
+
+                                    <label class="form-label">
+
+                                        Message
+
+                                    </label>
+
+                                    <textarea rows="4" class="form-control"
+                                        placeholder="Tell us your requirement"></textarea>
+
+                                </div>
+
+                                <div class="d-grid">
+
+                                    <button class="btn btn-danger btn-lg rounded-pill">
+
+                                        Submit Enquiry
+
+                                    </button>
+
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <!-- Floating WhatsApp -->
+
+    <a href="#" class="btn btn-success rounded-circle position-fixed" style="
+right:20px;
+bottom:20px;
+width:60px;
+height:60px;
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:9999;
+">
+
+        <i class="fab fa-whatsapp fa-xl"></i>
+
+    </a>
+
+
+
+
+
+    <!-- Scroll Top -->
+
+    <button id="topBtn" class="btn btn-danger rounded-circle" style="
+position:fixed;
+left:20px;
+bottom:20px;
+width:55px;
+height:55px;
+display:none;
+z-index:9999;
+">
+
+        <i class="fa-solid fa-arrow-up"></i>
+
+    </button>
+
+
+
+
+
+    <!-- Lightbox -->
+
+    <div class="modal fade" id="galleryModal" tabindex="-1">
+
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+
+            <div class="modal-content bg-dark border-0">
+
+                <div class="modal-body p-0">
+
+                    <img id="modalImage" src="" class="img-fluid w-100">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+
+        AOS.init({
+
+            duration: 900,
+            once: true
+
+        });
+
+
+
+        // Sticky Navbar
+
+        window.addEventListener("scroll", () => {
+
+            const nav = document.querySelector(".navbar");
+
+            if (window.scrollY > 70) {
+
+                nav.style.background = "#111";
+                nav.style.padding = "12px 0";
+
+            } else {
+
+                nav.style.background = "transparent";
+                nav.style.padding = "18px 0";
+
+            }
+
+        });
+
+
+
+        // Scroll Top
+
+        const topBtn = document.getElementById("topBtn");
+
+        window.addEventListener("scroll", () => {
+
+            topBtn.style.display =
+
+                window.scrollY > 350
+
+                    ?
+
+                    "block"
+
+                    :
+
+                    "none";
+
+        });
+
+        topBtn.onclick = () => {
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+        };
+
+
+
+        // Gallery Lightbox
+
+        document.querySelectorAll(".gallery-card img")
+
+            .forEach(img => {
+
+                img.style.cursor = "pointer";
+
+                img.onclick = function () {
+
+                    document.getElementById("modalImage").src = this.src;
+
+                    new bootstrap.Modal(
+
+                        document.getElementById("galleryModal")
+
+                    ).show();
+
+                }
+
+            });
+
+
+
+        // Gallery Filter
+
+        const filters = document.querySelectorAll(".filter-btn");
+
+        filters.forEach(btn => {
+
+            btn.onclick = function () {
+
+                filters.forEach(x => x.classList.remove("active"));
+
+                this.classList.add("active");
+
+                // Connect with actual filtering if categories are added
+            };
+
+        });
+
+
+
+        // Favorite Animation
+
+        document.querySelectorAll(".fa-heart").forEach(icon => {
+
+            icon.addEventListener("click", function (e) {
+
+                e.stopPropagation();
+
+                this.classList.toggle("text-danger");
+
+                this.animate([
+
+                    { transform: "scale(1)" },
+
+                    { transform: "scale(1.4)" },
+
+                    { transform: "scale(1)" }
+
+                ], {
+
+                    duration: 300
+
+                });
+
+            });
+
+        });
+
+
+
+        // Smooth Scroll
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+            anchor.addEventListener("click", function (e) {
+
+                const target = document.querySelector(
+
+                    this.getAttribute("href")
+
+                );
+
+                if (target) {
+
+                    e.preventDefault();
+
+                    target.scrollIntoView({
+
+                        behavior: "smooth"
+
+                    });
+
+                }
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>
