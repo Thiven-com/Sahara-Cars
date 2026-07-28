@@ -1178,7 +1178,7 @@
 
                                 </h4>
 
-                                <a href="{{ route('car.details', $similar->slug) }}" class="btn btn-danger w-100">
+                                <a href="{{ route('carDetails', $similar->slug) }}" class="btn btn-danger w-100">
 
                                     View Details
 

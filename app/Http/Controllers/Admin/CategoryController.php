@@ -70,7 +70,7 @@ class CategoryController extends Controller
 
         $category->name = $request->name;
         $category->slug = Str::slug($request->name);
-        $category->description = $request->description;
+        // $category->description = $request->description;
         $category->status = $request->status;
 
         if($request->hasFile('image')){
