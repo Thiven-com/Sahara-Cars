@@ -13,11 +13,11 @@ class Admin
     public function handle(Request $request, Closure $next): Response
     {
         if (!Auth::guard('admin')->check()) {
-            Log::info("Admin Dash Failed");
+            // Log::info("Admin Dash Failed");
 
             return redirect()->route('admin.login');
         }
-        Log::info("Admin Dash");
+        // Log::info("Admin Dash");
 
         return $next($request);
     }

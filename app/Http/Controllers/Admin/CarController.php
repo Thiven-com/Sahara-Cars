@@ -93,7 +93,7 @@ class CarController extends Controller
 
             $car->transmission = $request->transmission;
 
-            $car->kilometers = $request->kilometers;
+            $car->kilometers = $request->kilometers ?? 0;
 
             $car->price = $request->price;
 

@@ -23,6 +23,6 @@ class ContactController extends Controller
     {
         $contact->delete();
 
-        return back()->with('success', 'Contact deleted successfully.');
+        return redirect(route('admin.contacts.index'))->with('success', 'Contact deleted successfully.');
     }
 }

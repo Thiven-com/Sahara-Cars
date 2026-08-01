@@ -104,6 +104,6 @@ class CategoryController extends Controller
 
         $category->delete();
 
-        return back()->with('success','Category Deleted Successfully');
+        return redirect()->route('admin.categories.index')->with('success','Category Deleted Successfully');
     }
 }
