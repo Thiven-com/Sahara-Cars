@@ -466,7 +466,7 @@
 
                             <div class="price">
 
-                                ₹{{ number_format($car->price) }}
+                                ₹{{ preg_replace('/(?<=\d)(?=(\d{2})+\d$)/', ',', (string) (int) $car->price) }}
 
                             </div>
 
@@ -848,7 +848,7 @@
                         <div class="text-center mb-4">
 
                             <h2 class="text-danger fw-bold mb-0">
-                                ₹{{ number_format($car->price) }}
+                                ₹{{ preg_replace('/(?<=\d)(?=(\d{2})+\d$)/', ',', (string) (int) $car->price) }}
                             </h2>
 
                             <small class="text-muted">
@@ -1342,7 +1342,7 @@
                                 </h2>
 
                                 <h3 class="text-warning fw-bold mb-4">
-                                    ₹{{ number_format($car->price) }}
+                                    ₹{{ preg_replace('/(?<=\d)(?=(\d{2})+\d$)/', ',', (string) (int) $car->price) }}
                                 </h3>
 
                                 <div class="row text-center g-3 mb-4">

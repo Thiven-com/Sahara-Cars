@@ -363,7 +363,7 @@
 
                         <div class="mt-4">
 
-                            {{ $cars->links() }}
+                            {{ $cars->links('pagination::bootstrap-5') }}
 
                         </div>
 
